@@ -67,6 +67,14 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.3);
+        }
     </style>
 </head>
 <body class="font-body bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
@@ -165,73 +173,119 @@
         </div>
     </section>
 
-    <!-- Contact Form & Info - تصميم محسن -->
+    <!-- Contact Form & Training Form - تصميم محسن -->
     <section class="py-20 bg-white dark:bg-gray-900">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12">
                 
-                <!-- Contact Info - تصميم متوافق -->
+                <!-- نموذج طلب التدريب التعاوني -->
                 <div class="scroll-animate">
                     <div class="text-center mb-6">
                         <div class="flex items-center justify-center gap-6">
                             <div class="h-1 w-20 bg-gradient-to-r from-transparent to-accent-yellow rounded-full"></div>
                             <span class="inline-block bg-accent-yellow/10 text-accent-yellow px-6 py-2 rounded-full text-2xl font-heading font-extrabold dark:bg-primary-dark/20 dark:text-white transform hover:scale-110 transition-all duration-300">
-                                معلومات التواصل
+                                طلب التدريب التعاوني
                             </span>
                             <div class="h-1 w-20 bg-gradient-to-l from-transparent to-accent-yellow rounded-full"></div>
                         </div>
                     </div>
                     
                     <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-center">
-                        نحن هنا للإجابة على جميع استفساراتك. قم بملء النموذج وسنرد عليك خلال 2 ساعة عمل كحد أقصى.
+                        انضم إلى فريقنا وتطور في بيئة عمل احترافية مع أحدث التقنيات
                     </p>
                     
-                    <div class="space-y-6 mb-8">
-                        <div class="group flex items-start bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl hover:shadow-md transition-all duration-300">
-                            <div class="w-14 h-14 bg-gradient-to-br from-accent-yellow to-yellow-400 rounded-full flex items-center justify-center ml-4 transition-all duration-300 group-hover:scale-110">
-                                <i class="fas fa-map-marker-alt text-primary-dark text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white">العنوان</h3>
-                                <p class="text-gray-600 dark:text-gray-300">الرياض، المملكة العربية السعودية</p>
+                    <!-- نموذج التدريب -->
+                    <form id="training-form" class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-8 rounded-2xl shadow-xl">
+                        <!-- الاسم -->
+                        <div class="mb-6">
+                            <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">
+                                الاسم الكامل <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" 
+                                   name="full_name" 
+                                   required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input"
+                                   placeholder="أدخل اسمك الكامل">
+                        </div>
+                        
+                        <!-- المدينة -->
+                        <div class="mb-6">
+                            <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">
+                                المدينة <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" 
+                                   name="city" 
+                                   required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input"
+                                   placeholder="أدخل مدينتك">
+                        </div>
+                        
+                        <!-- التخصص -->
+                        <div class="mb-6">
+                            <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">
+                                التخصص <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" 
+                                   name="major" 
+                                   required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input"
+                                   placeholder="أدخل تخصصك الدراسي">
+                        </div>
+                        
+                        <!-- رقم الجوال -->
+                        <div class="mb-6">
+                            <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">
+                                رقم الجوال <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <div class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                                    +966
+                                </div>
+                                <input type="tel" 
+                                       name="phone" 
+                                       required
+                                       pattern="[0-9]{9}"
+                                       maxlength="9"
+                                       class="w-full px-4 py-3 pr-24 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input"
+                                       placeholder="5XXXXXXXX">
+                                <div class="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500 dark:text-gray-400">
+                                    مثال: 512345678
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="group flex items-start bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl hover:shadow-md transition-all duration-300">
-                            <div class="w-14 h-14 bg-gradient-to-br from-accent-yellow to-yellow-400 rounded-full flex items-center justify-center ml-4 transition-all duration-300 group-hover:scale-110">
-                                <i class="fas fa-phone text-primary-dark text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white">الهاتف</h3>
-                                <p class="text-gray-600 dark:text-gray-300">+966-551234567</p>
-                            </div>
+                        <!-- معلومات إضافية -->
+                        <div class="mb-6">
+                            <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">
+                                الجامعة / المؤسسة التعليمية
+                            </label>
+                            <input type="text" 
+                                   name="university" 
+                                   class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input"
+                                   placeholder="أدخل اسم الجامعة أو المؤسسة التعليمية">
                         </div>
                         
-                        <div class="group flex items-start bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl hover:shadow-md transition-all duration-300">
-                            <div class="w-14 h-14 bg-gradient-to-br from-accent-yellow to-yellow-400 rounded-full flex items-center justify-center ml-4 transition-all duration-300 group-hover:scale-110">
-                                <i class="fas fa-envelope text-primary-dark text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white">البريد الإلكتروني</h3>
-                                <p class="text-gray-600 dark:text-gray-300">info@dayidea.com</p>
-                            </div>
+                        <!-- رسالة نجاح -->
+                        <div id="training-success" class="hidden p-4 mb-4 text-green-700 bg-green-100 dark:bg-green-900 dark:text-green-300 rounded-lg">
+                            تم إرسال طلب التدريب بنجاح! سنتواصل معك قريباً.
                         </div>
                         
-                        <div class="group flex items-start bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl hover:shadow-md transition-all duration-300">
-                            <div class="w-14 h-14 bg-gradient-to-br from-accent-yellow to-yellow-400 rounded-full flex items-center justify-center ml-4 transition-all duration-300 group-hover:scale-110">
-                                <i class="fas fa-clock text-primary-dark text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white">ساعات العمل</h3>
-                                <p class="text-gray-600 dark:text-gray-300">الأحد - الخميس: 8 صباحًا - 5 مساءً</p>
-                            </div>
-                        </div>
-                    </div>
+                        <!-- زر الإرسال -->
+                        <button type="submit" 
+                                class="w-full glow-button bg-accent-yellow text-primary-dark px-8 py-4 rounded-full font-heading font-bold text-lg hover:bg-yellow-400 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-xl">
+                            <i class="fas fa-user-graduate ml-2"></i>
+                            تقديم طلب التدريب
+                        </button>
+                        
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 text-center">
+                            سنراجع طلبك وسنتواصل معك خلال أسبوع عمل
+                        </p>
+                    </form>
                     
-                   
+                
                 </div>
                 
-                <!-- Contact Form - تصميم متوافق -->
+                <!-- نموذج التواصل العام -->
                 <div class="scroll-animate">
                     <div class="text-center mb-6">
                         <div class="flex items-center justify-center gap-6">
@@ -243,18 +297,22 @@
                         </div>
                     </div>
                     
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-center">
+                        نحن هنا للإجابة على جميع استفساراتك. قم بملء النموذج وسنرد عليك خلال 2 ساعة عمل كحد أقصى.
+                    </p>
+                    
                     <form id="contact-form" class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-8 rounded-2xl shadow-xl">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">الاسم الكامل *</label>
                                 <input type="text" name="name" required
-                                       class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors"
+                                       class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input"
                                        placeholder="أدخل اسمك الكامل">
                             </div>
                             <div>
                                 <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">البريد الإلكتروني *</label>
                                 <input type="email" name="email" required
-                                       class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors"
+                                       class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input"
                                        placeholder="example@email.com">
                             </div>
                         </div>
@@ -263,13 +321,13 @@
                             <div>
                                 <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">رقم الهاتف</label>
                                 <input type="tel" name="phone"
-                                       class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors"
+                                       class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input"
                                        placeholder="+966 5xxxxxxxx">
                             </div>
                             <div>
                                 <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">الخدمة المطلوبة</label>
                                 <select name="service" 
-                                        class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors">
+                                        class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input">
                                     <option value="">اختر خدمة</option>
                                     <option value="mobile">تطوير تطبيقات موبايل</option>
                                     <option value="web">تطوير مواقع ويب</option>
@@ -281,11 +339,10 @@
                             </div>
                         </div>
                         
-                        
-                        <div class="mt-6">
+                        <div class="mt-16">
                             <label class="block text-primary-dark dark:text-white font-heading font-bold mb-2">تفاصيل المشروع *</label>
                             <textarea name="message" rows="6" required
-                                      class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors resize-none"
+                                      class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-accent-yellow dark:bg-gray-700 dark:text-white transition-colors form-input resize-none"
                                       placeholder="صّف لنا مشروعك، متطلباتك، وأي تفاصيل إضافية..."></textarea>
                         </div>
                         
@@ -294,6 +351,11 @@
                                 <input type="checkbox" name="privacy" required class="ml-2">
                                 أوافق على <a href="#" class="text-accent-yellow hover:underline">سياسة الخصوصية</a> و<a href="#" class="text-accent-yellow hover:underline">الشروط والأحكام</a>
                             </label>
+                        </div>
+                        
+                        <!-- رسالة نجاح -->
+                        <div id="contact-success" class="hidden p-4 mb-4 text-green-700 bg-green-100 dark:bg-green-900 dark:text-green-300 rounded-lg">
+                            تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.
                         </div>
                         
                         <button type="submit" 
@@ -306,12 +368,13 @@
                             سنتواصل معك خلال 48 ساعة عمل كحد أقصى
                         </p>
                     </form>
+                    
+                    
                 </div>
             </div>
         </div>
     </section>
 
-    
     <!-- Footer - متطابق مع التصميم الجديد -->
     <footer class="bg-primary-dark text-white py-10">
         <div class="container mx-auto px-6">
@@ -404,6 +467,78 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
+    <script>
+        // معالجة نموذج التدريب التعاوني
+        document.getElementById('training-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // جمع البيانات من النموذج
+            const formData = {
+                full_name: this.full_name.value,
+                city: this.city.value,
+                major: this.major.value,
+                phone: '+966' + this.phone.value,
+                university: this.university.value
+            };
+            
+            // هنا يمكنك إضافة كود لإرسال البيانات للخادم
+            console.log('بيانات التدريب التعاوني:', formData);
+            
+            // عرض رسالة النجاح
+            const successMessage = document.getElementById('training-success');
+            successMessage.classList.remove('hidden');
+            successMessage.classList.add('block');
+            
+            // إخفاء الرسالة بعد 5 ثواني
+            setTimeout(() => {
+                successMessage.classList.remove('block');
+                successMessage.classList.add('hidden');
+            }, 5000);
+            
+            // إعادة تعيين النموذج
+            this.reset();
+        });
+        
+        // معالجة نموذج التواصل العام
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // جمع البيانات من النموذج
+            const formData = {
+                name: this.name.value,
+                email: this.email.value,
+                phone: this.phone.value,
+                service: this.service.value,
+                message: this.message.value
+            };
+            
+            // هنا يمكنك إضافة كود لإرسال البيانات للخادم
+            console.log('بيانات التواصل:', formData);
+            
+            // عرض رسالة النجاح
+            const successMessage = document.getElementById('contact-success');
+            successMessage.classList.remove('hidden');
+            successMessage.classList.add('block');
+            
+            // إخفاء الرسالة بعد 5 ثواني
+            setTimeout(() => {
+                successMessage.classList.remove('block');
+                successMessage.classList.add('hidden');
+            }, 5000);
+            
+            // إعادة تعيين النموذج
+            this.reset();
+        });
+        
+        // التحقق من صحة رقم الجوال
+        document.querySelectorAll('input[type="tel"]').forEach(input => {
+            input.addEventListener('input', function(e) {
+                this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
+            });
+        });
+    </script>
+    
     <script src="js/dark-mode.js"></script>
     <script src="js/main.js"></script>
 </body>
