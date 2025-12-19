@@ -2,8 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <!-- تحسين viewport للموبايل -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فكرة اليوم - Day Idea Company</title>
     
     <!-- Google Fonts -->
@@ -16,6 +15,9 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
     
     <script>
         tailwind.config = {
@@ -33,293 +35,8 @@
             }
         }
     </script>
-    
-    <style>
-        /* ============================================
-           CUSTOM STYLES FOR DAY IDEA COMPANY
-           ============================================ */
-
-        /* Root Variables */
-        :root {
-            --primary-dark: #0D3B66;
-            --accent-yellow: #FFD166;
-            --transition: all 0.3s ease;
-        }
-
-        /* Scroll Animations */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .scroll-animate.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Service Cards Hover Effects */
-        .service-card {
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(13, 59, 102, 0.15);
-        }
-
-        /* Project Overlay */
-        .project-overlay {
-            background: linear-gradient(to top, rgba(13, 59, 102, 0.9), transparent);
-        }
-
-        /* Back to Top Button */
-        #back-to-top {
-            transition: var(--transition);
-        }
-
-        #back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #back-to-top:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Loading Screen */
-        #loading-screen {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #loading-screen.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        /* FAQ Accordion */
-        .faq-question i {
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active i {
-            transform: rotate(90deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .faq-answer.show {
-            max-height: 200px;
-        }
-
-        /* Form Styles */
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.2);
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-dark);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-yellow);
-        }
-
-        /* Mobile Menu Animation */
-        #mobile-menu {
-            transition: max-height 0.4s ease;
-        }
-
-        /* Filter Buttons */
-        .filter-btn.active {
-            background: var(--primary-dark);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        /* Focus Visible for Accessibility */
-        a:focus, button:focus, input:focus, textarea:focus {
-            outline: 2px solid var(--accent-yellow);
-            outline-offset: 2px;
-        }
-
-        /* Typewriter Cursor */
-        .blinking-cursor {
-            animation: blink 1s infinite;
-            color: #fbbf24;
-            font-weight: bold;
-            margin-right: 3px;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        /* Logo Effects */
-        .logo-wrapper {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .logo-wrapper:hover {
-            filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.6));
-            box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
-        }
-        
-        .logo-wrapper:hover img {
-            filter: brightness(1.2);
-        }
-
-        /* Glow Button Effect */
-        .glow-button {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .glow-button:hover {
-            box-shadow: 0 0 20px rgba(255, 209, 102, 0.5), 
-                        0 0 40px rgba(255, 209, 102, 0.3),
-                        0 0 60px rgba(255, 209, 102, 0.1);
-            filter: brightness(1.1);
-        }
-
-        /* Feature Card Hover */
-        .feature-card {
-            transition: all 0.3s ease;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .scroll-animate {
-                opacity: 1;
-                transform: none;
-            }
-            
-            .service-card:hover {
-                transform: none;
-            }
-            
-            /* Mobile Navigation */
-            .mobile-nav-container {
-                position: relative;
-            }
-            
-            /* Ensure text doesn't overflow on mobile */
-            .text-group span {
-                font-size: 0.875rem;
-            }
-            
-            /* Mobile menu improvements */
-            #mobile-menu {
-                max-height: 0;
-                overflow: hidden;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                left: 0;
-                background: white;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-            }
-            
-            #mobile-menu.show {
-                max-height: 500px;
-                padding: 1rem;
-            }
-            
-            /* Mobile button sizing */
-            .mobile-menu-btn {
-                width: 40px;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            /* Hero section mobile adjustments */
-            #home h1 {
-                font-size: 2rem !important;
-                text-align: center;
-            }
-            
-            #home p {
-                font-size: 1rem !important;
-                text-align: center;
-            }
-            
-            /* Services grid mobile */
-            .grid-cols-1 {
-                grid-template-columns: 1fr;
-            }
-            
-            .grid-cols-2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            /* Footer mobile */
-            .md\\:grid-cols-4 {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .md\\:grid-cols-4 {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Smaller font sizes for very small screens */
-            .text-3xl {
-                font-size: 1.5rem;
-            }
-            
-            .text-2xl {
-                font-size: 1.25rem;
-            }
-            
-            /* Adjust padding for mobile */
-            .px-6 {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            
-            .py-4 {
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            header, footer, #back-to-top {
-                display: none;
-            }
-        }
-    </style>
 </head>
-<body class="font-body bg-white text-gray-800 overflow-x-hidden">
+<body class="font-body bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
 
     <!-- Loading Screen -->
     <div id="loading-screen" class="fixed inset-0 bg-primary-dark flex items-center justify-center z-[9999] transition-opacity duration-500">
@@ -329,675 +46,579 @@
         </div>
     </div>
 
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" class="fixed bottom-6 left-6 z-50 bg-accent-yellow text-primary-dark w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
+        <i class="fas fa-moon text-xl"></i>
+    </button>
+
     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-6 right-6 z-50 bg-primary-dark text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-300 opacity-0 invisible">
         <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
-    <!-- Header -->
-    <header class="fixed top-0 w-full bg-white shadow-md z-50">
-        <nav class="container mx-auto px-4 md:px-6 py-4">
-            <div class="flex justify-between items-center">
-                
-                <!-- Logo -->
-                <a href="index.html" class="logo-container flex items-center group gap-2 md:gap-4">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-accent-yellow rounded-lg flex items-center justify-center overflow-hidden logo-wrapper">
-                        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-all duration-300 group-hover:scale-110">
-                    </div>
-                    
-                    <div class="flex flex-col leading-none text-group">
-                        <span class="font-heading font-extrabold text-sm md:text-base lg:text-lg text-accent-yellow leading-none transition-all duration-300 hover:text-primary-dark">DAY IDEA</span>
-                        <span class="font-body font-bold text-xs md:text-sm lg:text-base text-accent-yellow leading-none -mt-1 transition-all duration-300 hover:text-primary-dark">فكرة اليوم</span>
-                    </div>
-                </a>
+    <!-- Header - PERFECTLY CENTERED NAVIGATION -->
+<header class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden mobile-menu-btn bg-accent-yellow text-primary-dark rounded-lg p-2">
-                    <i class="fas fa-bars text-lg"></i>
-                </button>
+<!-- ========================================================== -->
+<!-- Logo (Left) - MINIMAL SPACING -->
+<!-- الشعار مع تأثيرات Hover على النص فقط -->
+<a href="index.html" class="logo-container flex items-center group gap-4">
+    <!-- شعار الصورة مع تأثير Hover الموجود -->
+    <div class="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center overflow-hidden logo-wrapper">
+        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-all duration-300 group-hover:scale-110">
+    </div>
+    
+    <!-- النص مع تأثيرات Hover الجديدة -->
+    <div class="flex flex-col leading-none text-group">
+        <span class="font-heading font-extrabold text-base lg:text-lg text-accent-yellow leading-none transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">DAY IDEA</span>
+        <span class="font-body font-bold text-sm lg:text-base text-accent-yellow leading-none -mt-1 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">فكرة اليوم</span>
+    </div>
+</a>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex flex-1 justify-center">
-                    <div class="flex items-center gap-4 lg:gap-8">
-                        <a href="index.html" class="relative text-primary-dark hover:text-yellow-400 transition-all font-bold text-sm md:text-base lg:text-lg py-2 group">
-                            الرئيسية
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="about.html" class="relative text-primary-dark hover:text-yellow-400 transition-all font-bold text-sm md:text-base lg:text-lg py-2 group">
-                            عن الشركة
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="services.html" class="relative text-primary-dark hover:text-yellow-400 transition-all font-bold text-sm md:text-base lg:text-lg py-2 group">
-                            خدماتنا
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="projects.html" class="relative text-primary-dark hover:text-yellow-400 transition-all font-bold text-sm md:text-base lg:text-lg py-2 group">
-                            مشاريعنا
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Desktop Contact Button -->
-                <div class="hidden md:block">
-                    <a href="contact.html" class="glow-button bg-accent-yellow text-primary-dark px-4 md:px-6 py-2 rounded-full font-heading font-bold hover:bg-yellow-400 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg text-sm md:text-base">
-                        تواصل معنا
-                    </a>
-                </div>
-            </div>
+<style>
+    /* تأثير إضاءة وظل للشعار عند المرور */
+    .logo-wrapper {
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .logo-wrapper:hover {
+        filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.6));
+        box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+    }
+    
+    .logo-wrapper:hover img {
+        filter: brightness(1.2);
+    }
+</style>
+
+<!-- ================================================= -->
+    <!-- Navigation (Center) -  -->
+<div class="hidden md:flex flex-1 justify-center">
+    <div class="flex items-center gap-8">
+        <a href="index.html" class="relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
+            الرئيسية
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="about.html" class="relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
+            عن الشركة
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="services.html" class="relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
+            خدماتنا
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="projects.html" class="relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
+            مشاريعنا
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+    </div>
+</div>
             
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden mobile-nav-container">
-                <div class="flex flex-col space-y-4 py-4 px-2 bg-white shadow-lg rounded-lg mt-2">
-                    <a href="index.html" class="text-primary-dark hover:text-yellow-400 transition-all font-bold py-2 px-4 rounded-lg hover:bg-yellow-50">
-                        الرئيسية
-                    </a>
-                    <a href="about.html" class="text-primary-dark hover:text-yellow-400 transition-all font-bold py-2 px-4 rounded-lg hover:bg-yellow-50">
-                        عن الشركة
-                    </a>
-                    <a href="services.html" class="text-primary-dark hover:text-yellow-400 transition-all font-bold py-2 px-4 rounded-lg hover:bg-yellow-50">
-                        خدماتنا
-                    </a>
-                    <a href="projects.html" class="text-primary-dark hover:text-yellow-400 transition-all font-bold py-2 px-4 rounded-lg hover:bg-yellow-50">
-                        مشاريعنا
-                    </a>
-                    <a href="contact.html" class="bg-accent-yellow text-primary-dark py-2 px-4 rounded-lg font-bold text-center hover:bg-yellow-400 transition-all">
-                        تواصل معنا
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
+           <div class="hidden md:block">
+    <a href="contact.html" class="glow-button bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold hover:bg-yellow-400 hover:text-white transform hover:scale-110 transition-all duration-300 shadow-lg">
+        تواصل معنا
+    </a>
+</div>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-blue-50 to-white">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-                <div class="flex-1 text-center lg:text-right">
-                    <h1 class="font-heading font-bold text-3xl md:text-4xl lg:text-6xl mb-6 leading-tight" style="min-height: 1.2em;">
-                        <span id="typewriter-first" class="text-yellow-400"></span>
-                        <span id="typewriter-second" class="text-gray-800"></span>
-                        <span class="blinking-cursor">|</span>
-                    </h1>
-                    <p class="text-base md:text-lg lg:text-xl text-gray-600 mb-8 max-w-prose mx-auto lg:mx-0">
-                        نحن في فكرة اليوم نسعى لتحويل أفكارك إلى واقع رقمي مبتكر من خلال حلول برمجية متقدمة ومخصصة لاحتياجاتك
-                    </p>
-                    <a href="services.html" class="inline-block bg-yellow-400 text-gray-800 px-6 md:px-8 py-3 md:py-4 rounded-full font-heading font-bold text-base md:text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 shadow-xl">
-                        <i class="fas fa-arrow-left ml-2"></i>
-                        تعرف على خدماتنا
-                    </a>
-                </div>
-                <div class="flex-1 w-full scroll-animate mt-8 lg:mt-0">
-                    <img data-src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1000&h=750&fit=crop" 
-                         alt="Innovation" 
-                         class="lazy-load w-full rounded-2xl shadow-2xl">
-                </div>
-            </div>
+<style>
+    .glow-button {
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .glow-button:hover {
+        box-shadow: 0 0 20px rgba(255, 209, 102, 0.5), 
+                    0 0 40px rgba(255, 209, 102, 0.3),
+                    0 0 60px rgba(255, 209, 102, 0.1);
+        filter: brightness();
+    }
+</style>
+           
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-primary-dark dark:text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
-    </section>
-
-    <!-- About Preview -->
-    <section class="py-12 md:py-20 bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-64 h-64 bg-accent-yellow opacity-5 rounded-full blur-3xl -translate-x-32 -translate-y-32"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-dark opacity-5 rounded-full blur-3xl translate-x-48 translate-y-32"></div>
         
-        <div class="container mx-auto px-4 md:px-6 relative z-10">
-            
-            <!-- Title Section -->
-            <div class="text-center mb-8 md:mb-12">
-                <div class="flex items-center justify-center gap-4 md:gap-6">
-                    <div class="h-1 w-12 md:w-20 bg-gradient-to-r from-transparent to-accent-yellow rounded-full"></div>
-                    <span class="inline-block bg-accent-yellow/10 text-accent-yellow px-5 md:px-7 py-2 md:py-3 rounded-full text-xl md:text-3xl font-heading font-extrabold transform hover:scale-105 transition-all duration-300">
-                        لماذا نحن؟
-                    </span>
-                    <div class="h-1 w-12 md:w-20 bg-gradient-to-l from-transparent to-accent-yellow rounded-full"></div>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-                
-                <!-- Left: Text Content -->
-                <div class="scroll-animate space-y-6 md:space-y-8">
-                    
-                    <!-- Main Title -->
-                    <h2 class="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-primary-dark leading-tight text-center">
-                        لماذا تختار 
-                        <span class="bg-gradient-to-r from-accent-yellow to-primary-dark bg-clip-text text-transparent">فكرة اليوم؟</span>
-                    </h2>
-
-                    <!-- Description -->
-                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed max-w-prose mx-auto text-center">
-                        نجمع بين الإبداع والخبرة التقنية لتقديم حلول برمجية مميزة تلبي احتياجاتك الفعلية وتفوق توقعاتك بمراحل.
-                    </p>
-
-                    <!-- Features Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                        <!-- Feature 1 -->
-                        <div class="group feature-card bg-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-yellow-400/30 transition-all duration-300 border-l-4 border-accent-yellow hover:border-primary-dark transform hover:-translate-y-2 md:hover:-translate-y-3">
-                            <div class="flex items-start gap-3 md:gap-4">
-                                <div class="w-10 h-10 md:w-14 md:h-14 bg-accent-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent-yellow/20 transition-colors">
-                                    <i class="fas fa-user-graduate text-xl md:text-2xl text-accent-yellow"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-heading font-bold text-base md:text-lg text-primary-dark mb-1">خبرة محترفة</h3>
-                                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">فريق ذو خبرة واسعة في أحدث التقنيات والمنهجيات</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Feature 2 -->
-                        <div class="group feature-card bg-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-yellow-400/30 transition-all duration-300 border-l-4 border-accent-yellow hover:border-primary-dark transform hover:-translate-y-2 md:hover:-translate-y-3">
-                            <div class="flex items-start gap-3 md:gap-4">
-                                <div class="w-10 h-10 md:w-14 md:h-14 bg-accent-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent-yellow/20 transition-colors">
-                                    <i class="fas fa-puzzle-piece text-xl md:text-2xl text-accent-yellow"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-heading font-bold text-base md:text-lg text-primary-dark mb-1">حلول مخصصة</h3>
-                                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">100% مخصصة حسب متطلبات عملك الفريدة</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Feature 3 -->
-                        <div class="group feature-card bg-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-yellow-400/30 transition-all duration-300 border-l-4 border-accent-yellow hover:border-primary-dark transform hover:-translate-y-2 md:hover:-translate-y-3">
-                            <div class="flex items-start gap-3 md:gap-4">
-                                <div class="w-10 h-10 md:w-14 md:h-14 bg-accent-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent-yellow/20 transition-colors">
-                                    <i class="fas fa-headset text-xl md:text-2xl text-accent-yellow"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-heading font-bold text-base md:text-lg text-primary-dark mb-1">دعم 24/7</h3>
-                                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">دعم فني متواصل وصيانة دورية مجانية</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Feature 4 -->
-                        <div class="group feature-card bg-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-yellow-400/30 transition-all duration-300 border-l-4 border-accent-yellow hover:border-primary-dark transform hover:-translate-y-2 md:hover:-translate-y-3">
-                            <div class="flex items-start gap-3 md:gap-4">
-                                <div class="w-10 h-10 md:w-14 md:h-14 bg-accent-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent-yellow/20 transition-colors">
-                                    <i class="fas fa-tag text-xl md:text-2xl text-accent-yellow"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-heading font-bold text-base md:text-lg text-primary-dark mb-1">أسعار تنافسية</h3>
-                                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">جودة عالية بأسعار معقولة وشفافة</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CTA Section -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-4">
-                        <a href="about.html" class="group inline-flex items-center bg-accent-yellow text-primary-dark px-6 md:px-8 py-3 md:py-4 rounded-full font-heading font-bold text-base md:text-lg hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300 shadow-xl relative overflow-hidden">
-                            <span class="relative z-10">اقرأ المزيد</span>
-                            <i class="fas fa-arrow-left mr-3 group-hover:translate-x-2 transition-all duration-300 relative z-10"></i>
-                            <div class="absolute inset-0 bg-white/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right: Image -->
-                <div class="scroll-animate relative mt-8 md:mt-0">
-                    <div class="relative bg-white rounded-3xl p-4 md:p-6 shadow-2xl ring-1 ring-accent-yellow/10">
-                        <div class="relative overflow-hidden rounded-2xl">
-                            <img data-src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
-                                 alt="Team" 
-                                 class="lazy-load w-full h-64 md:h-80 lg:h-96 object-cover transform transition-transform duration-500 hover:scale-105">
-                        </div>
-                        
-                        <!-- Stats -->
-                        <div class="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 w-full flex justify-center gap-4 md:gap-8">
-                            <!-- Stat 1 -->
-                            <div class="group w-16 h-16 md:w-20 md:h-20 relative cursor-pointer">
-                                <div class="w-full h-full rounded-full bg-primary-dark/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-accent-yellow group-hover:scale-110">
-                                    <i class="fas fa-users text-sm md:text-lg text-accent-yellow mb-1"></i>
-                                    <span class="text-sm md:text-base font-heading font-bold text-accent-yellow">50+</span>
-                                </div>
-                                <div class="absolute -bottom-4 md:-bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                                   فريق 
-                                </div>
-                            </div>
-
-                            <!-- Stat 2 -->
-                            <div class="group w-16 h-16 md:w-20 md:h-20 relative cursor-pointer">
-                                <div class="w-full h-full rounded-full bg-primary-dark/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-accent-yellow group-hover:scale-110">
-                                    <i class="fas fa-check-circle text-sm md:text-lg text-accent-yellow mb-1"></i>
-                                    <span class="text-sm md:text-base font-heading font-bold text-accent-yellow">12+</span>
-                                </div>
-                                <div class="absolute -bottom-4 md:-bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                                    مشروع منجز
-                                </div>
-                            </div>
-
-                            <!-- Stat 3 -->
-                            <div class="group w-16 h-16 md:w-20 md:h-20 relative cursor-pointer">
-                                <div class="w-full h-full rounded-full bg-primary-dark/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-accent-yellow group-hover:scale-110">
-                                    <i class="fas fa-award text-sm md:text-lg text-accent-yellow mb-1"></i>
-                                    <span class="text-sm md:text-base font-heading font-bold text-accent-yellow">99%</span>
-                                </div>
-                                <div class="absolute -bottom-4 md:-bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                                    رضا العملاء
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+            <a href="index.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors">الرئيسية</a>
+            <a href="about.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors">عن الشركة</a>
+            <a href="services.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors">خدماتنا</a>
+            <a href="projects.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors">مشاريعنا</a>
+            <a href="contact.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors">تواصل معنا</a>
+            <a href="contact.html" class="inline-block mt-4 bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold">تواصل معنا</a>
         </div>
-    </section>
-
-    <!-- Services Preview -->
-    <section class="py-12 md:py-20 bg-gray-50">
-        <div class="container mx-auto px-4 md:px-6">
-            
-            <!-- Centered Title -->
-            <div class="text-center mb-8 md:mb-12 scroll-animate">
-                <div class="flex items-center justify-center gap-4 md:gap-6">
-                    <div class="h-1 w-12 md:w-20 bg-gradient-to-r from-transparent to-accent-yellow rounded-full"></div>
-                    <span class="inline-block bg-accent-yellow/10 text-accent-yellow px-5 md:px-7 py-2 md:py-3 rounded-full text-xl md:text-3xl font-heading font-extrabold transform hover:scale-105 transition-all duration-300">
-                        خدماتنا الرئيسية
-                    </span>
-                    <div class="h-1 w-12 md:w-20 bg-gradient-to-l from-transparent to-accent-yellow rounded-full"></div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Service 1 -->
-                <div class="group service-card bg-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 transition-all duration-300 scroll-animate transform hover:-translate-y-2 md:hover:-translate-y-3 relative overflow-visible">
-                    <div class="absolute -top-6 md:-top-10 left-1/2 -translate-x-1/2 w-14 h-14 md:w-20 md:h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 z-10">
-                        <i class="fas fa-code text-xl md:text-3xl text-primary-dark transition-all duration-300 group-hover:text-white"></i>
-                    </div>
-                    <div class="pt-12 md:pt-16">
-                        <h3 class="font-heading font-bold text-lg md:text-xl text-primary-dark mb-2 md:mb-3 text-center">
-                            تطوير تطبيقات
-                        </h3>
-                        <p class="text-gray-600 leading-relaxed text-center text-sm md:text-base">
-                            تطبيقات موبايل وويب متفاعلة تعمل على جميع الأنظمة.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="group service-card bg-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 transition-all duration-300 scroll-animate transform hover:-translate-y-2 md:hover:-translate-y-3 relative overflow-visible">
-                    <div class="absolute -top-6 md:-top-10 left-1/2 -translate-x-1/2 w-14 h-14 md:w-20 md:h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 z-10">
-                        <i class="fas fa-cloud text-xl md:text-3xl text-primary-dark transition-all duration-300 group-hover:text-white"></i>
-                    </div>
-                    <div class="pt-12 md:pt-16">
-                        <h3 class="font-heading font-bold text-lg md:text-xl text-primary-dark mb-2 md:mb-3 text-center">
-                            حلول سحابية
-                        </h3>
-                        <p class="text-gray-600 leading-relaxed text-center text-sm md:text-base">
-                            بنية تحتية سحابية آمنة وقابلة للتطوير.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="group service-card bg-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 transition-all duration-300 scroll-animate transform hover:-translate-y-2 md:hover:-translate-y-3 relative overflow-visible">
-                    <div class="absolute -top-6 md:-top-10 left-1/2 -translate-x-1/2 w-14 h-14 md:w-20 md:h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 z-10">
-                        <i class="fas fa-palette text-xl md:text-3xl text-primary-dark transition-all duration-300 group-hover:text-white"></i>
-                    </div>
-                    <div class="pt-12 md:pt-16">
-                        <h3 class="font-heading font-bold text-lg md:text-xl text-primary-dark mb-2 md:mb-3 text-center">
-                            تصميم واجهات
-                        </h3>
-                        <p class="text-gray-600 leading-relaxed text-center text-sm md:text-base">
-                            تصاميم UI/UX مبتكرة تركز على المستخدم.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="group service-card bg-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 transition-all duration-300 scroll-animate transform hover:-translate-y-2 md:hover:-translate-y-3 relative overflow-visible">
-                    <div class="absolute -top-6 md:-top-10 left-1/2 -translate-x-1/2 w-14 h-14 md:w-20 md:h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 z-10">
-                        <i class="fas fa-comments text-xl md:text-3xl text-primary-dark transition-all duration-300 group-hover:text-white"></i>
-                    </div>
-                    <div class="pt-12 md:pt-16">
-                        <h3 class="font-heading font-bold text-lg md:text-xl text-primary-dark mb-2 md:mb-3 text-center">
-                            استشارات تقنية
-                        </h3>
-                        <p class="text-gray-600 leading-relaxed text-center text-sm md:text-base">
-                            خبراء تقنيون يقدمون لك النصح والإرشاد.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-8 md:mt-12">
-                <a href="services.html" class="inline-block bg-accent-yellow text-primary-dark px-6 md:px-8 py-3 md:py-4 rounded-full font-heading font-bold text-base md:text-lg hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300 shadow-xl">
-                    عرض جميع الخدمات
+    </nav>
+</header>
+<!-- END OF NAVIGATION -->
+<!-- END OF NAV============================================================== -->
+<!-- Hero Section -->
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div class="flex-1 text-right lg:text-right">
+                <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight" style="min-height: 1.2em;">
+                    <span id="typewriter-first" class="text-yellow-400"></span>
+                    <span id="typewriter-second" class="text-gray-800 dark:text-white"></span>
+                    <span class="blinking-cursor">|</span>
+                </h1>
+                <p class="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-prose">
+                    نحن في فكرة اليوم نسعى لتحويل أفكارك إلى واقع رقمي مبتكر من خلال حلول برمجية متقدمة ومخصصة لاحتياجاتك
+                </p>
+                <a href="services.html" class="inline-block bg-yellow-400 text-gray-800 px-8 py-4 rounded-full font-heading font-bold text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 shadow-xl">
+                    <i class="fas fa-arrow-left ml-2"></i>
+                    تعرف على خدماتنا
                 </a>
             </div>
+            <div class="flex-1 w-full scroll-animate">
+                <img data-src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1000&h=750&fit=crop" 
+                     alt="Innovation" 
+                     class="lazy-load w-full rounded-2xl shadow-2xl">
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-primary-dark text-white py-8 md:py-10">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                <!-- Company Info -->
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-accent-yellow rounded-lg flex items-center justify-center ml-3">
-                            <i class="fas fa-lightbulb text-primary-dark text-xl"></i>
+<style>
+    .blinking-cursor {
+        animation: blink 1s infinite;
+        color: #fbbf24;
+        font-weight: bold;
+        margin-right: 3px;
+    }
+    
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+</style>
+
+<script>
+    // Wait for both DOMContentLoaded and ensure no conflicts
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTypewriter);
+    } else {
+        initTypewriter();
+    }
+    
+    function initTypewriter() {
+        const firstElement = document.getElementById('typewriter-first');
+        const secondElement = document.getElementById('typewriter-second');
+        
+        if (!firstElement || !secondElement) return;
+        
+        const firstPart = 'أفكار اليوم ';
+        const secondPart = 'حلول للغد';
+        let index = 0;
+        let isWritingFirst = true;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            if (!isDeleting) {
+                if (isWritingFirst) {
+                    if (index <= firstPart.length) {
+                        firstElement.textContent = firstPart.substring(0, index);
+                        index++;
+                    } else {
+                        isWritingFirst = false;
+                        index = 0;
+                    }
+                } else {
+                    if (index <= secondPart.length) {
+                        secondElement.textContent = secondPart.substring(0, index);
+                        index++;
+                    } else {
+                        setTimeout(() => {
+                            isDeleting = true;
+                            index = secondPart.length;
+                        }, 1500);
+                        return;
+                    }
+                }
+            } else {
+                if (index >= 0) {
+                    if (isWritingFirst) {
+                        firstElement.textContent = firstPart.substring(0, index);
+                        index--;
+                    } else {
+                        secondElement.textContent = secondPart.substring(0, index);
+                        index--;
+                    }
+                } else {
+                    if (isWritingFirst) {
+                        isWritingFirst = false;
+                        isDeleting = false;
+                        index = 0;
+                    } else {
+                        isWritingFirst = true;
+                        isDeleting = false;
+                        index = 0;
+                        setTimeout(typeWriter, 800);
+                        return;
+                    }
+                }
+            }
+            
+            const typingSpeed = isDeleting ? 60 : 120;
+            setTimeout(typeWriter, typingSpeed);
+        }
+        
+        typeWriter();
+    }
+</script>
+
+<!-- END OF HERO SECTION======================================================= -->
+  <!-- About Preview - FINAL ENHANCED VERSION -->
+<section class="py-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <!-- Decorative Background Elements -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-accent-yellow opacity-5 rounded-full blur-3xl -translate-x-32 -translate-y-32"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-dark opacity-5 rounded-full blur-3xl translate-x-48 translate-y-32 dark:bg-accent-yellow"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        
+        <!-- NEW: Separate Centered Title Section -->
+        <div class="text-center mb-">
+            <div class="flex items-center justify-center gap-6">
+                <div class="h-1 w-20 bg-gradient-to-r from-transparent to-accent-yellow rounded-full"></div>
+                <span class="inline-block bg-accent-yellow/10 text-accent-yellow px- py-3 rounded-full text-3xl font-heading font-extrabold dark:bg-primary-dark/20 dark:text-white transform hover:scale-110 transition-all duration-300">
+                    لماذا نحن؟
+                </span>
+                <div class="h-1 w-20 bg-gradient-to-l from-transparent to-accent-yellow rounded-full"></div>
+            </div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left: Text Content (title removed from here) -->
+            <div class="scroll-animate space-y-8">
+                
+                <!-- Main Title -->
+                <h2 class="font-heading font-bold text-5xl md:text-6xl text-primary-dark dark:text-white leading-tight text-center">
+                    لماذا تختار 
+                    <span class="bg-gradient-to-r from-accent-yellow to-primary-dark bg-clip-text text-transparent dark:from-accent-yellow dark:to-white">فكرة اليوم؟</span>
+                </h2>
+
+                <!-- Description -->
+                <p class="text-gray-600 dark:text-gray-300 text-xl leading-relaxed max-w-prose mx-auto text-center">
+                    نجمع بين الإبداع والخبرة التقنية لتقديم حلول برمجية مميزة تلبي احتياجاتك الفعلية وتفوق توقعاتك بمراحل.
+                </p>
+
+                <!-- Features Grid - ENHANCED HOVER EFFECT -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="group feature-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 border-l-4 border-accent-yellow hover:border-primary-dark dark:hover:border-accent-yellow transform hover:-translate-y-3">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-accent-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent-yellow/20 transition-colors">
+                                <i class="fas fa-user-graduate text-2xl text-accent-yellow"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white mb-1">خبرة محترفة</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">فريق ذو خبرة واسعة في أحدث التقنيات والمنهجيات</p>
+                            </div>
                         </div>
-                        <span class="font-heading font-bold text-xl md:text-2xl bg-gradient-to-r from-accent-yellow to-white bg-clip-text text-transparent">Day Idea</span>
                     </div>
-                    <p class="text-blue-100 leading-relaxed text-sm md:text-base">
-                        نحو أفكار اليوم، حلول الغد. شريكك في التحول الرقمي.
+
+                    <!-- Feature 2 -->
+                    <div class="group feature-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 border-l-4 border-accent-yellow hover:border-primary-dark dark:hover:border-accent-yellow transform hover:-translate-y-3">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-accent-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent-yellow/20 transition-colors">
+                                <i class="fas fa-puzzle-piece text-2xl text-accent-yellow"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white mb-1">حلول مخصصة</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">100% مخصصة حسب متطلبات عملك الفريدة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="group feature-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 border-l-4 border-accent-yellow hover:border-primary-dark dark:hover:border-accent-yellow transform hover:-translate-y-3">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-accent-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent-yellow/20 transition-colors">
+                                <i class="fas fa-headset text-2xl text-accent-yellow"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white mb-1">دعم 24/7</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">دعم فني متواصل وصيانة دورية مجانية</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="group feature-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 border-l-4 border-accent-yellow hover:border-primary-dark dark:hover:border-accent-yellow transform hover:-translate-y-3">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-accent-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent-yellow/20 transition-colors">
+                                <i class="fas fa-tag text-2xl text-accent-yellow"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white mb-1">أسعار تنافسية</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">جودة عالية بأسعار معقولة وشفافة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="about.html" class="group inline-flex items-center bg-accent-yellow text-primary-dark px-8 py-4 rounded-full font-heading font-bold text-lg hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300 shadow-xl relative overflow-hidden">
+                        <span class="relative z-10">اقرأ المزيد</span>
+                        <i class="fas fa-arrow-left mr-3 group-hover:translate-x-2 transition-all duration-300 relative z-10"></i>
+                        <div class="absolute inset-0 bg-white/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Image -->
+            <div class="scroll-animate relative">
+                <div class="relative bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-2xl ring-1 ring-accent-yellow/10 dark:ring-white/10">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img data-src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
+                             alt="Team" 
+                             class="lazy-load w-full h-80 md:h-96 object-cover transform transition-transform duration-500 hover:scale-105">
+                    </div>
+                    
+                    <!-- Stats with Circular Progress on Hover -->
+                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-full flex justify-center gap-8">
+                        <!-- Stat 1: Happy Clients -->
+                        <div class="group w-20 h-20 relative cursor-pointer">
+                            <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-accent-yellow group-hover:scale-110">
+                                <i class="fas fa-users text-lg text-accent-yellow dark:text-primary-dark mb-1"></i>
+                                <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark">50+</span>
+                            </div>
+                            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                               فريق 
+                            </div>
+                        </div>
+
+                        <!-- Stat 2: Projects -->
+                        <div class="group w-20 h-20 relative cursor-pointer">
+                            <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-accent-yellow group-hover:scale-110">
+                                <i class="fas fa-check-circle text-lg text-accent-yellow dark:text-primary-dark mb-1"></i>
+                                <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark">12+</span>
+                            </div>
+                            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                                مشروع منجز
+                            </div>
+                        </div>
+
+                        <!-- Stat 3: Satisfaction -->
+                        <div class="group w-20 h-20 relative cursor-pointer">
+                            <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-accent-yellow group-hover:scale-110">
+                                <i class="fas fa-award text-lg text-accent-yellow dark:text-primary-dark mb-1"></i>
+                                <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark">99%</span>
+                            </div>
+                            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                                رضا العملاء
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================= -->
+ <!-- Services Preview - FINAL ENHANCED VERSION -->
+<section class="py-20 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+        
+        <!-- Centered Title with Yellow Lines -->
+        <div class="text-center mb-12 scroll-animate">
+            <div class="flex items-center justify-center gap-6">
+                <div class="h-1 w-20 bg-gradient-to-r from-transparent to-accent-yellow rounded-full"></div>
+                <span class="inline-block bg-accent-yellow/10 text-accent-yellow px-7 py-3 rounded-full text-3xl font-heading font-extrabold dark:bg-primary-dark/20 dark:text-white transform hover:scale-110 transition-all duration-300">
+                    خدماتنا الرئيسية
+                </span>
+                <div class="h-1 w-20 bg-gradient-to-l from-transparent to-accent-yellow rounded-full"></div>
+            </div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Service 1 - Separated & Larger Icon with Hover -->
+            <div class="group service-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible">
+                <!-- Icon positioned half outside with separation -->
+                <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 dark:group-hover:shadow-yellow-400/20 z-10">
+                    <i class="fas fa-code text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
+                </div>
+                <div class="pt-12">
+                    <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-3 text-center">
+                        تطوير تطبيقات
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
+                        تطبيقات موبايل وويب متفاعلة تعمل على جميع الأنظمة.
                     </p>
                 </div>
+            </div>
 
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="font-heading font-bold text-base md:text-lg mb-3 md:mb-4 text-accent-yellow">روابط سريعة</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-blue-100 hover:text-accent-yellow transition-colors text-sm md:text-base">الرئيسية</a></li>
-                        <li><a href="about.html" class="text-blue-100 hover:text-accent-yellow transition-colors text-sm md:text-base">عن الشركة</a></li>
-                        <li><a href="services.html" class="text-blue-100 hover:text-accent-yellow transition-colors text-sm md:text-base">خدماتنا</a></li>
-                        <li><a href="projects.html" class="text-blue-100 hover:text-accent-yellow transition-colors text-sm md:text-base">مشاريعنا</a></li>
-                    </ul>
+            <!-- Service 2 - Separated & Larger Icon with Hover -->
+            <div class="group service-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible">
+                <!-- Icon positioned half outside with separation -->
+                <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 dark:group-hover:shadow-yellow-400/20 z-10">
+                    <i class="fas fa-cloud text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
                 </div>
-
-                <!-- Contact -->
-                <div>
-                    <h3 class="font-heading font-bold text-base md:text-lg mb-3 md:mb-4 text-accent-yellow">تواصل معنا</h3>
-                    <ul class="space-y-2 text-blue-100 text-sm md:text-base">
-                        <li><i class="fas fa-envelope ml-2"></i> info@dayidea.com</li>
-                        <li><i class="fas fa-phone ml-2"></i> 966-551234567 +</li>
-                        <li><i class="fas fa-map-marker-alt ml-2"></i> الرياض، السعودية</li>
-                    </ul>
-                </div>
-
-                <!-- Social Media -->
-                <div>
-                    <h3 class="font-heading font-bold text-base md:text-lg mb-3 md:mb-4 text-accent-yellow">تابعنا</h3>
-                    <div class="flex space-x-reverse space-x-4">
-                        <!-- Twitter -->
-                        <div class="relative group">
-                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
-                                <i class="fab fa-twitter text-base transition-all duration-300 group-hover:text-white group-hover:scale-110 relative z-10"></i>
-                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            </a>
-                            <span class="absolute -bottom-6 md:-bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-heading font-bold whitespace-nowrap text-xs">
-                                Twitter
-                            </span>
-                        </div>
-
-                        <!-- LinkedIn -->
-                        <div class="relative group">
-                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
-                                <i class="fab fa-linkedin text-base transition-all duration-300 group-hover:text-white group-hover:scale-110 relative z-10"></i>
-                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            </a>
-                            <span class="absolute -bottom-6 md:-bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-heading font-bold whitespace-nowrap text-xs">
-                                LinkedIn
-                            </span>
-                        </div>
-
-                        <!-- Instagram -->
-                        <div class="relative group">
-                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
-                                <i class="fab fa-instagram text-base transition-all duration-300 group-hover:text-white group-hover:scale-110 relative z-10"></i>
-                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            </a>
-                            <span class="absolute -bottom-6 md:-bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-heading font-bold whitespace-nowrap text-xs">
-                                Instagram
-                            </span>
-                        </div>
-                    </div>
+                <div class="pt-12">
+                    <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-3 text-center">
+                        حلول سحابية
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
+                        بنية تحتية سحابية آمنة وقابلة للتطوير.
+                    </p>
                 </div>
             </div>
 
-            <!-- Copyright -->
-            <div class="border-t border-accent-yellow mt-6 md:mt-8 pt-4 md:pt-6 text-center text-blue-200 text-sm md:text-base">
-                <p>&copy;جميع الحقوق محفوظة لشركة فكرة اليوم 2025</p>
+            <!-- Service 3 - Separated & Larger Icon with Hover -->
+            <div class="group service-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible">
+                <!-- Icon positioned half outside with separation -->
+                <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 dark:group-hover:shadow-yellow-400/20 z-10">
+                    <i class="fas fa-palette text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
+                </div>
+                <div class="pt-12">
+                    <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-3 text-center">
+                        تصميم واجهات
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
+                        تصاميم UI/UX مبتكرة تركز على المستخدم.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Service 4 - Separated & Larger Icon with Hover -->
+            <div class="group service-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible">
+                <!-- Icon positioned half outside with separation -->
+                <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 dark:group-hover:shadow-yellow-400/20 z-10">
+                    <i class="fas fa-comments text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
+                </div>
+                <div class="pt-12">
+                    <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-3 text-center">
+                        استشارات تقنية
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
+                        خبراء تقنيون يقدمون لك النصح والإرشاد.
+                    </p>
+                </div>
             </div>
         </div>
-    </footer>
 
-    <script>
-        // ============================================
-        // MAIN JAVASCRIPT FOR DAY IDEA COMPANY
-        // ============================================
+        <div class="text-center mt-8">
+            <a href="services.html" class="inline-block bg-accent-yellow text-primary-dark px-8 py-4 rounded-full font-heading font-bold text-lg hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300 shadow-xl icon-hover">
+                عرض جميع الخدمات
+            </a>
+        </div>
+    </div>
+</section>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // ========================
-            // LOADING SCREEN
-            // ========================
-            window.addEventListener('load', () => {
-                const loadingScreen = document.getElementById('loading-screen');
-                setTimeout(() => {
-                    loadingScreen.classList.add('hide');
-                }, 1000);
-            });
-            
-            // ========================
-            // MOBILE MENU TOGGLE
-            // ========================
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('show');
-                    
-                    // Animate hamburger icon
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (mobileMenu.classList.contains('show')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-                
-                // Close menu when clicking a link
-                document.querySelectorAll('#mobile-menu a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.remove('show');
-                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                    });
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && mobileMenu.classList.contains('show')) {
-                        mobileMenu.classList.remove('show');
-                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                    }
-                });
-            }
-            
-            // ========================
-            // SCROLL ANIMATIONS
-            // ========================
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all scroll-animate elements
-            document.querySelectorAll('.scroll-animate').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // ========================
-            // BACK TO TOP BUTTON
-            // ========================
-            const backToTopBtn = document.getElementById('back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('visible');
-                    backToTopBtn.style.opacity = '1';
-                    backToTopBtn.style.visibility = 'visible';
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                    backToTopBtn.style.opacity = '0';
-                    backToTopBtn.style.visibility = 'hidden';
-                }
-            });
-            
-            backToTopBtn?.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // ========================
-            // SMOOTH SCROLL FOR ANCHOR LINKS
-            // ========================
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start',
-                        });
-                    }
-                });
-            });
-            
-            // ========================
-            // LAZY LOADING IMAGES
-            // ========================
-            const lazyImages = document.querySelectorAll('img[data-src]');
-            
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy-load');
-                        observer.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '50px 0px'
-            });
-            
-            lazyImages.forEach(img => imageObserver.observe(img));
-            
-            // ========================
-            // TYPEWRITER EFFECT
-            // ========================
-            function initTypewriter() {
-                const firstElement = document.getElementById('typewriter-first');
-                const secondElement = document.getElementById('typewriter-second');
-                
-                if (!firstElement || !secondElement) return;
-                
-                const firstPart = 'أفكار اليوم ';
-                const secondPart = 'حلول للغد';
-                let index = 0;
-                let isWritingFirst = true;
-                let isDeleting = false;
-                
-                function typeWriter() {
-                    if (!isDeleting) {
-                        if (isWritingFirst) {
-                            if (index <= firstPart.length) {
-                                firstElement.textContent = firstPart.substring(0, index);
-                                index++;
-                            } else {
-                                isWritingFirst = false;
-                                index = 0;
-                            }
-                        } else {
-                            if (index <= secondPart.length) {
-                                secondElement.textContent = secondPart.substring(0, index);
-                                index++;
-                            } else {
-                                setTimeout(() => {
-                                    isDeleting = true;
-                                    index = secondPart.length;
-                                }, 1500);
-                                return;
-                            }
-                        }
-                    } else {
-                        if (index >= 0) {
-                            if (isWritingFirst) {
-                                firstElement.textContent = firstPart.substring(0, index);
-                                index--;
-                            } else {
-                                secondElement.textContent = secondPart.substring(0, index);
-                                index--;
-                            }
-                        } else {
-                            if (isWritingFirst) {
-                                isWritingFirst = false;
-                                isDeleting = false;
-                                index = 0;
-                            } else {
-                                isWritingFirst = true;
-                                isDeleting = false;
-                                index = 0;
-                                setTimeout(typeWriter, 800);
-                                return;
-                            }
-                        }
-                    }
-                    
-                    const typingSpeed = isDeleting ? 60 : 120;
-                    setTimeout(typeWriter, typingSpeed);
-                }
-                
-                typeWriter();
-            }
-            
-            // Initialize typewriter effect
-            initTypewriter();
-            
-            // ========================
-            // ACTIVE NAV LINK
-            // ========================
-            function setActiveNavLink() {
-                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-                const navLinks = document.querySelectorAll('header nav a');
-                
-                navLinks.forEach(link => {
-                    const linkHref = link.getAttribute('href');
-                    if (linkHref === currentPage) {
-                        link.classList.add('text-yellow-400');
-                    }
-                });
-            }
-            
-            setActiveNavLink();
-            
-            // ========================
-            // WINDOW RESIZE HANDLER
-            // ========================
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    // Close mobile menu on resize to desktop
-                    if (window.innerWidth >= 768 && mobileMenu?.classList.contains('show')) {
-                        mobileMenu.classList.remove('show');
-                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                    }
-                }, 250);
-            });
-        });
-    </script>
+<!--end of Services Preview ======================================================= -->
+
+
+           <!-- Footer - ENHANCED VERSION -->
+<footer class="bg-primary-dark text-white py-10">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div>
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-accent-yellow rounded-lg flex items-center justify-center ml-3">
+                        <i class="fas fa-lightbulb text-primary-dark text-xl"></i>
+                    </div>
+                    <!-- Gradient text: Yellow & White -->
+                    <span class="font-heading font-bold text-2xl bg-gradient-to-r from-accent-yellow to-white bg-clip-text text-transparent">Day Idea Company</span>
+                </div>
+                <p class="text-blue-100 leading-relaxed">
+                    نحو أفكار اليوم، حلول الغد. شريكك في التحول الرقمي.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="font-heading font-bold text-lg mb-4 text-accent-yellow">روابط سريعة</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-blue-100 hover:text-accent-yellow transition-colors">الرئيسية</a></li>
+                    <li><a href="about.html" class="text-blue-100 hover:text-accent-yellow transition-colors">عن الشركة</a></li>
+                    <li><a href="services.html" class="text-blue-100 hover:text-accent-yellow transition-colors">خدماتنا</a></li>
+                    <li><a href="projects.html" class="text-blue-100 hover:text-accent-yellow transition-colors">مشاريعنا</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h3 class="font-heading font-bold text-lg mb-4 text-accent-yellow">تواصل معنا</h3>
+                <ul class="space-y-2 text-blue-100">
+                    <li><i class="fas fa-envelope ml-2"></i> info@dayidea.com</li>
+                    <li><i class="fas fa-phone ml-2"></i> 966-551234567 +
+</li>
+                    <li><i class="fas fa-map-marker-alt ml-2"></i> الرياض، السعودية</li>
+                </ul>
+            </div>
+
+            <!-- Social Media - ENHANCED -->
+           <div>
+    <h3 class="font-heading font-bold text-lg mb-4 text-accent-yellow">تابعنا</h3>
+    <div class="flex space-x-reverse space-x-6">
+        <!-- Twitter - Smaller tooltip text, subtle icon scale -->
+        <div class="relative group">
+            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
+                <i class="fab fa-twitter text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            <!-- Smaller text size -->
+            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
+                Twitter
+            </span>
+        </div>
+
+        <!-- LinkedIn - Smaller tooltip text, subtle icon scale -->
+        <div class="relative group">
+            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
+                <i class="fab fa-linkedin text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
+                LinkedIn
+            </span>
+        </div>
+
+        <!-- Instagram - Smaller tooltip text, subtle icon scale -->
+        <div class="relative group">
+            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
+                <i class="fab fa-instagram text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
+                Instagram
+            </span>
+        </div>
+
+        <!-- Facebook - Smaller tooltip text, subtle icon scale -->
+        <div class="relative group">
+            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
+                <i class="fab fa-facebook text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
+                Facebook
+            </span>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <!-- Enhanced Yellow Line -->
+        <div class="border-t border-accent-yellow mt-4 pt-4 text-center text-blue-200">
+            <p>&copy;جميع الحقوق محفوظة لشركة فكرة اليوم 2025</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="js/dark-mode.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

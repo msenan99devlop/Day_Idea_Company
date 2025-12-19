@@ -88,9 +88,9 @@
     </div>
 
     <!-- Dark Mode Toggle -->
-    <!-- <button id="dark-mode-toggle" class="fixed bottom-6 left-6 z-50 bg-accent-yellow text-primary-dark w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
+    <button id="dark-mode-toggle" class="fixed bottom-6 left-6 z-50 bg-accent-yellow text-primary-dark w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
         <i class="fas fa-moon text-xl"></i>
-    </button> -->
+    </button>
 
     <!-- Header - متطابق مع التصميم الجديد -->
     <header class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
@@ -141,7 +141,21 @@
                     </a>
                 </div>
                 
-                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-primary-dark dark:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+                <a href="index.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">الرئيسية</a>
+                <a href="about.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">عن الشركة</a>
+                <a href="services.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">خدماتنا</a>
+                <a href="projects.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">مشاريعنا</a>
+                <a href="contact.html" class="block py-2 text-accent-yellow font-bold">تواصل معنا</a>
+                <a href="contact.html" class="inline-block mt-4 bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold">تواصل معنا</a>
+            </div>
         </nav>
     </header>
 
@@ -525,7 +539,7 @@
         });
     </script>
     
-    <!-- <script src="js/dark-mode.js"></script> -->
+    <script src="js/dark-mode.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
