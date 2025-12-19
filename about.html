@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- نفس الهيدر في index.html -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عن الشركة - Day Idea Company</title>
@@ -10,28 +9,119 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { 'primary-dark': '#0D3B66', 'accent-yellow': '#FFD166' },
-                    fontFamily: { 'heading': ['Poppins', 'sans-serif'], 'body': ['Cairo', 'sans-serif'] }
+                    colors: { 
+                        'primary-dark': '#0D3B66', 
+                        'accent-yellow': '#FFD166' 
+                    },
+                    fontFamily: { 
+                        'heading': ['Poppins', 'sans-serif'], 
+                        'body': ['Cairo', 'sans-serif'] 
+                    }
                 }
             }
         }
     </script>
+    <style>
+        /* Custom Styles */
+        .glow-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(255, 209, 102, 0.5), 
+                        0 0 40px rgba(255, 209, 102, 0.3),
+                        0 0 60px rgba(255, 209, 102, 0.1);
+            filter: brightness(1.1);
+        }
+        
+        .logo-wrapper {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-wrapper:hover {
+            filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.6));
+            box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+        }
+        
+        .logo-wrapper:hover img {
+            filter: brightness(1.2);
+        }
+        
+        .nav-link.active {
+            color: #fbbf24;
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scroll-animate.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile menu */
+        #mobile-menu {
+            transition: all 0.4s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        #mobile-menu.show {
+            max-height: 500px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .grid-cols-1 {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            .text-2xl {
+                font-size: 1.25rem !important;
+            }
+            
+            .text-lg {
+                font-size: 1rem !important;
+            }
+            
+            .p-8 {
+                padding: 1.5rem !important;
+            }
+            
+            .gap-12 {
+                gap: 2rem !important;
+            }
+            
+            /* Mobile touch improvements */
+            button, a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body class="font-body bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
     
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-primary-dark flex items-center justify-center z-[9999] transition-opacity duration-500">
-        <div class="text-center">
-            <div class="w-16 h-16 border-4 border-accent-yellow border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="text-white font-heading text-lg"> عن الشركة ...</p>
-        </div>
-    </div>
-
     <!-- Dark Mode Toggle -->
     <button id="dark-mode-toggle" class="fixed bottom-6 left-6 z-50 bg-accent-yellow text-primary-dark w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
         <i class="fas fa-moon text-xl"></i>
@@ -41,40 +131,24 @@
     <header class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <!-- -- Logo (Left) - MINIMAL SPACING --> 
-<!-- الشعار مع تأثيرات Hover على النص فقط -->
-<a href="index.html" class="logo-container flex items-center group gap-4">
-    <!-- شعار الصورة مع تأثير Hover الموجود -->
-    <div class="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center overflow-hidden logo-wrapper">
-        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-all duration-300 group-hover:scale-110">
-    </div>
-    
-    <!-- النص مع تأثيرات Hover الجديدة -->
-    <div class="flex flex-col leading-none text-group">
-        <span class="font-heading font-extrabold text-base lg:text-lg text-accent-yellow leading-none transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">DAY IDEA</span>
-        <span class="font-body font-bold text-sm lg:text-base text-accent-yellow leading-none -mt-1 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">فكرة اليوم</span>
-    </div>
-</a>
-
-<style>
-    /* تأثير إضاءة وظل للشعار عند المرور */
-    .logo-wrapper {
-        position: relative;
-        transition: all 0.3s ease;
-    }
-    
-    .logo-wrapper:hover {
-        filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.6));
-        box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
-    }
-    
-    .logo-wrapper:hover img {
-        filter: brightness(1.2);
-    }
-</style>
-
+                <!-- Logo -->
+                <a href="index.html" class="logo-container flex items-center group gap-4">
+                    <div class="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center overflow-hidden logo-wrapper">
+                        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-all duration-300 group-hover:scale-110">
+                    </div>
+                    
+                    <div class="flex flex-col leading-none text-group">
+                        <span class="font-heading font-extrabold text-base lg:text-lg text-accent-yellow leading-none">DAY IDEA</span>
+                        <span class="font-body font-bold text-sm lg:text-base text-accent-yellow leading-none -mt-1">فكرة اليوم</span>
+                    </div>
+                </a>
                 
-                <!-- Navigation (Center) -->
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-primary-dark dark:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex flex-1 justify-center">
                     <div class="flex items-center gap-8">
                         <a href="index.html" class="nav-link relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
@@ -96,454 +170,553 @@
                     </div>
                 </div>
                 
-                <!-- Contact Button --> 
-                <!-- <!-- <div class="hidden md:block"> -->
+                <!-- Desktop Contact Button -->
+                <div class="hidden md:block">
                     <a href="contact.html" class="glow-button bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold hover:bg-yellow-400 hover:text-white transform hover:scale-110 transition-all duration-300 shadow-lg">
                         تواصل معنا
                     </a>
                 </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-primary-dark dark:text-white">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
-                <a href="index.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">الرئيسية</a>
-                <a href="about.html" class="block py-2 text-accent-yellow font-bold">عن الشركة</a>
-                <a href="services.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">خدماتنا</a>
-                <a href="projects.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">مشاريعنا</a>
-                <a href="contact.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">تواصل معنا</a>
-                <a href="contact.html" class="inline-block mt-4 bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold">تواصل معنا</a>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-3 py-4">
+                    <a href="index.html" class="block py-2 px-4 text-primary-dark dark:text-white hover:text-accent-yellow hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">الرئيسية</a>
+                    <a href="about.html" class="block py-2 px-4 text-accent-yellow font-bold hover:bg-yellow-50 dark:hover:bg-gray-700 rounded-lg transition-colors">عن الشركة</a>
+                    <a href="services.html" class="block py-2 px-4 text-primary-dark dark:text-white hover:text-accent-yellow hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">خدماتنا</a>
+                    <a href="projects.html" class="block py-2 px-4 text-primary-dark dark:text-white hover:text-accent-yellow hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">مشاريعنا</a>
+                    <a href="contact.html" class="block py-2 px-4 text-primary-dark dark:text-white hover:text-accent-yellow hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">تواصل معنا</a>
+                    <a href="contact.html" class="block mt-2 bg-accent-yellow text-primary-dark py-2 px-4 rounded-full font-heading font-bold text-center hover:bg-yellow-400 transition-all">
+                        تواصل معنا
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
 
-   <!-- Hero Section -->
-<!-- Hero Section -->
-<section class="pt-24 pb-2 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
-    <div class="container mx-auto px-6 text-center">
-        <h1 class="font-heading font-bold text-4xl md:text-5xl mb-2 scroll-animate">
-            <span class="bg-gradient-to-r from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent dark:from-yellow-400 dark:via-gray-100 dark:to-yellow-400 drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)]">
-                عن فكرة اليوم
-            </span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto scroll-animate mb-0">
-            نحن فريق من المبدعين والمطورين المتحمسين نسعى لتحويل الأفكار إلى واقع رقمي
-        </p>
-    </div>
-</section>
-
-<!-- Company Story -->
-<section class="pt-4 pb-20 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-8 items-start"> <!-- تغيير من items-center إلى items-start -->
-            <div class="scroll-animate">
-                <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary-dark dark:text-white mb-4">
-                    نبذه عن الشركة 
-                </h2>
-                <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-3">
-    تأسست فكرة اليوم عام 2020 انطلاقًا من إيماننا العميق بأهمية الابتكار التقني ودوره في تحويل الأفكار الإبداعية إلى حلول رقمية عملية. بدأت رحلتنا كفريق صغير من المطورين الشغوفين بالتقنية، يجمعهم الطموح والرغبة في صناعة فرق حقيقي في عالم البرمجيات، ومع مرور الوقت نمونا لنصبح شركة رائدة في تقديم الحلول البرمجية المخصصة لمختلف القطاعات.
-</p>
-
-<p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-3">
-    نؤمن بأن كل فكرة جيدة تستحق فرصة حقيقية للنمو والازدهار، وأن النجاح يبدأ بفهم احتياجات العميل وتحويل رؤيته إلى واقع ملموس. لذلك نحرص على العمل بشكل مستمر على تطوير مهارات فريقنا، ومواكبة أحدث التقنيات العالمية، وتطبيق أفضل الممارسات البرمجية لضمان تقديم حلول عالية الجودة تلبي تطلعات عملائنا.
-</p>
-
-<p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-    تتمثل رؤيتنا في بناء مستقبل رقمي أفضل للشركات والأفراد، من خلال الابتكار المستمر، والتفاني في العمل، وتقديم خدمات تقنية موثوقة تضيف قيمة حقيقية وتدعم النمو المستدام. نسعى لأن نكون الشريك التقني المفضل لعملائنا في رحلتهم نحو التحول الرقمي.
-</p>
-
-            </div>
-            
-            <div class="scroll-animate mt-0">
-                <img data-src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
-                     alt="Our Team" 
-                     class="lazy-load rounded-2xl shadow-xl w-full mt-0 pt-0">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Vision & Mission - Modified with Hover Effects -->
-<section class="py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-12">
-            <!-- Vision Card -->
-            <div class="group service-card bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-accent-yellow/30 dark:hover:shadow-accent-yellow/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible border border-gray-200 dark:border-gray-700">
-                <!-- Icon positioned half outside with separation -->
-                <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-accent-yellow/20 rounded-full flex items-center justify-center transition-all duration-300 z-10">
-                    <div class="w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-accent-yellow/40 dark:group-hover:shadow-accent-yellow/20">
-                        <i class="fas fa-eye text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
-                    </div>
-                </div>
-                
-                
-                <!-- Content -->
-                <div class="pt-16">
-                    <h3 class="font-heading font-bold text-2xl md:text-3xl text-primary-dark dark:text-white mb-4 text-center">
-                        رؤيتنا
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-center text-lg">
-                        أن نكون الشريك التقني الأول لكل رائد أعمال ومؤسسة تسعى للتميز الرقمي والابتكار المستدام.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Mission Card -->
-            <div class="group service-card bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-accent-yellow/30 dark:hover:shadow-accent-yellow/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible border border-gray-200 dark:border-gray-700">
-                <!-- Icon positioned half outside with separation -->
-                <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-accent-yellow/20 rounded-full flex items-center justify-center transition-all duration-300 z-10">
-                    <div class="w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-accent-yellow/40 dark:group-hover:shadow-accent-yellow/20">
-                        <i class="fas fa-bullseye text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
-                    </div>
-                </div>
-
-                <!-- Content -->
-                <div class="pt-16">
-                    <h3 class="font-heading font-bold text-2xl md:text-3xl text-primary-dark dark:text-white mb-4 text-center">
-                        مهمتنا
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-center text-lg">
-                        تقديم حلول برمجية مبتكرة وموثوقة تساعد عملائنا على تحقيق أهدافهم التجارية بكفاءة عالية.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- =============================================================== -->
-<!-- Values -->
-<section class="py-20 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-6">
-        <!-- Header -->
-        <div class="text-center mb-16 scroll-animate">
-            <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary-dark dark:text-white mb-6">
+    <!-- Hero Section -->
+    <section class="pt-24 pb-2 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="font-heading font-bold text-4xl md:text-5xl mb-4 scroll-animate">
                 <span class="bg-gradient-to-r from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent dark:from-yellow-400 dark:via-gray-100 dark:to-yellow-400 drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)]">
-                    قيمنا
+                    عن فكرة اليوم
                 </span>
-            </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                المبادئ التي نعمل وفقها في كل مشروع
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto scroll-animate mb-0">
+                نحن فريق من المبدعين والمطورين المتحمسين نسعى لتحويل الأفكار إلى واقع رقمي
             </p>
         </div>
+    </section>
 
-        <!-- Values Cards -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Quality Card -->
-            <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl scroll-animate overflow-hidden group hover:shadow-[0_20px_60px_-15px_rgba(251,191,36,0.3)] hover:-translate-y-2 transition-all duration-500">
+    <!-- Company Story -->
+    <section class="pt-4 pb-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="scroll-animate">
+                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary-dark dark:text-white mb-6">
+                        نبذه عن الشركة 
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                        تأسست فكرة اليوم عام 2020 انطلاقًا من إيماننا العميق بأهمية الابتكار التقني ودوره في تحويل الأفكار الإبداعية إلى حلول رقمية عملية. بدأت رحلتنا كفريق صغير من المطورين الشغوفين بالتقنية، يجمعهم الطموح والرغبة في صناعة فرق حقيقي في عالم البرمجيات، ومع مرور الوقت نمونا لنصبح شركة رائدة في تقديم الحلول البرمجية المخصصة لمختلف القطاعات.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                        نؤمن بأن كل فكرة جيدة تستحق فرصة حقيقية للنمو والازدهار، وأن النجاح يبدأ بفهم احتياجات العميل وتحويل رؤيته إلى واقع ملموس. لذلك نحرص على العمل بشكل مستمر على تطوير مهارات فريقنا، ومواكبة أحدث التقنيات العالمية، وتطبيق أفضل الممارسات البرمجية لضمان تقديم حلول عالية الجودة تلبي تطلعات عملائنا.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                        تتمثل رؤيتنا في بناء مستقبل رقمي أفضل للشركات والأفراد، من خلال الابتكار المستمر، والتفاني في العمل، وتقديم خدمات تقنية موثوقة تضيف قيمة حقيقية وتدعم النمو المستدام. نسعى لأن نكون الشريك التقني المفضل لعملائنا في رحلتهم نحو التحول الرقمي.
+                    </p>
+                </div>
                 
-                <div class="relative z-10">
-                    <!-- Icon -->
-                    <div class="flex justify-center mb-6">
-                        <div class="relative">
-                            <!-- Icon box with golden glow -->
-                            <div class="relative w-20 h-20 bg-gradient-to-br from-yellow-300 to-accent-yellow dark:from-yellow-400 dark:to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500">
-                                <!-- Icon with black to white transition -->
-                                <i class="fas fa-gem text-2xl text-primary-dark group-hover:text-white transition-all duration-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Title -->
-                    <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-4 text-center group-hover:text-yellow-400 transition-all duration-300">
-                        الجودة
-                    </h3>
-                    
-                    <!-- Content -->
-                    <div class="text-center">
-                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                            نلتزم بأعلى معايير الجودة في كل خطوة
-                        </p>
-                        
-                        <!-- Points - محاذاة من اليسار لليمين -->
-                        <div class="space-y-4">
-                            <!-- Point 1 -->
-                            <div class="flex items-center gap-2 justify-center">
-                                <!-- الأيقونة أولاً على اليسار -->
-                                <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
-                                    <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
-                                </div>
-                                <!-- النص قريب جداً من الأيقونة -->
-                                <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">دقـة الـتنـفيـذ</span>
-                            </div>
-                            
-                            <!-- Point 2 -->
-                            <div class="flex items-center gap-2 justify-center">
-                                <!-- الأيقونة أولاً على اليسار -->
-                                <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
-                                    <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
-                                </div>
-                                <!-- النص قريب جداً من الأيقونة -->
-                                <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">مراقبة الجودة</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="scroll-animate">
+                    <img data-src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
+                         alt="Our Team" 
+                         class="lazy-load rounded-2xl shadow-xl w-full">
                 </div>
             </div>
-            
-            <!-- Trust Card -->
-            <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl scroll-animate overflow-hidden group hover:shadow-[0_20px_60px_-15px_rgba(251,191,36,0.3)] hover:-translate-y-2 transition-all duration-500">
-                
-                <div class="relative z-10">
-                    <!-- Icon -->
-                    <div class="flex justify-center mb-6">
-                        <div class="relative">
-                            <!-- Icon box with golden glow -->
-                            <div class="relative w-20 h-20 bg-gradient-to-br from-yellow-300 to-accent-yellow dark:from-yellow-400 dark:to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500">
-                                <!-- Icon with black to white transition -->
-                                <i class="fas fa-handshake text-2xl text-primary-dark group-hover:text-white transition-all duration-300"></i>
-                            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Vision Card -->
+                <div class="group service-card bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-accent-yellow/30 dark:hover:shadow-accent-yellow/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible border border-gray-200 dark:border-gray-700">
+                    <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-accent-yellow/20 rounded-full flex items-center justify-center transition-all duration-300 z-10">
+                        <div class="w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-accent-yellow/40 dark:group-hover:shadow-accent-yellow/20">
+                            <i class="fas fa-eye text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
                         </div>
                     </div>
                     
-                    <!-- Title -->
-                    <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-4 text-center group-hover:text-yellow-400 transition-all duration-300">
-                        الثقة
-                    </h3>
-                    
-                    <!-- Content -->
-                    <div class="text-center">
-                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                            بناء علاقات طويلة الأمد مع عملائنا
+                    <div class="pt-16">
+                        <h3 class="font-heading font-bold text-2xl md:text-3xl text-primary-dark dark:text-white mb-6 text-center">
+                            رؤيتنا
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-center text-lg">
+                            أن نكون الشريك التقني الأول لكل رائد أعمال ومؤسسة تسعى للتميز الرقمي والابتكار المستدام.
                         </p>
-                        
-                        <!-- Points - محاذاة من اليسار لليمين -->
-                        <div class="space-y-4">
-                            <!-- Point 1 -->
-                            <div class="flex items-center gap-2 justify-center">
-                                <!-- الأيقونة أولاً على اليسار -->
-                                <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
-                                    <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
-                                </div>
-                                <!-- النص قريب جداً من الأيقونة -->
-                                <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">الشفافية</span>
-                            </div>
-                            
-                            <!-- Point 2 -->
-                            <div class="flex items-center gap-2 justify-center">
-                                <!-- الأيقونة أولاً على اليسار -->
-                                <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
-                                    <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
-                                </div>
-                                <!-- النص قريب جداً من الأيقونة -->
-                                <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">الموثوقية</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Innovation Card -->
-            <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl scroll-animate overflow-hidden group hover:shadow-[0_20px_60px_-15px_rgba(251,191,36,0.3)] hover:-translate-y-2 transition-all duration-500">
                 
-                <div class="relative z-10">
-                    <!-- Icon -->
-                    <div class="flex justify-center mb-6">
-                        <div class="relative">
-                            <!-- Icon box with golden glow -->
-                            <div class="relative w-20 h-20 bg-gradient-to-br from-yellow-300 to-accent-yellow dark:from-yellow-400 dark:to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500">
-                                <!-- Icon with black to white transition -->
-                                <i class="fas fa-lightbulb text-2xl text-primary-dark group-hover:text-white transition-all duration-300"></i>
-                            </div>
+                <!-- Mission Card -->
+                <div class="group service-card bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-accent-yellow/30 dark:hover:shadow-accent-yellow/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible border border-gray-200 dark:border-gray-700">
+                    <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-accent-yellow/20 rounded-full flex items-center justify-center transition-all duration-300 z-10">
+                        <div class="w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-accent-yellow/40 dark:group-hover:shadow-accent-yellow/20">
+                            <i class="fas fa-bullseye text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
                         </div>
                     </div>
-                    
-                    <!-- Title -->
-                    <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-4 text-center group-hover:text-yellow-400 transition-all duration-300">
-                        الابتكار
-                    </h3>
-                    
-                    <!-- Content -->
-                    <div class="text-center">
-                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                            حلول مبتكرة تفوق التوقعات
+
+                    <div class="pt-16">
+                        <h3 class="font-heading font-bold text-2xl md:text-3xl text-primary-dark dark:text-white mb-6 text-center">
+                            مهمتنا
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-center text-lg">
+                            تقديم حلول برمجية مبتكرة وموثوقة تساعد عملائنا على تحقيق أهدافهم التجارية بكفاءة عالية.
                         </p>
-                        
-                        <!-- Points - محاذاة من اليسار لليمين -->
-                        <div class="space-y-4">
-                            <!-- Point 1 -->
-                            <div class="flex items-center gap-2 justify-center">
-                                <!-- الأيقونة أولاً على اليسار -->
-                                <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
-                                    <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
-                                </div>
-                                <!-- النص قريب جداً من الأيقونة -->
-                                <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">التفكير الإبداعي</span>
-                            </div>
-                            
-                            <!-- Point 2 -->
-                            <div class="flex items-center gap-2 justify-center">
-                                <!-- الأيقونة أولاً على اليسار -->
-                                <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
-                                    <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
-                                </div>
-                                <!-- النص قريب جداً من الأيقونة -->
-                                <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">التجديد المستمر</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Teamwork Card -->
-            <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl scroll-animate overflow-hidden group hover:shadow-[0_20px_60px_-15px_rgba(251,191,36,0.3)] hover:-translate-y-2 transition-all duration-500">
-                
-                <div class="relative z-10">
-                    <!-- Icon -->
-                    <div class="flex justify-center mb-6">
-                        <div class="relative">
-                            <!-- Icon box with golden glow -->
-                            <div class="relative w-20 h-20 bg-gradient-to-br from-yellow-300 to-accent-yellow dark:from-yellow-400 dark:to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500">
-                                <!-- Icon with black to white transition -->
-                                <i class="fas fa-users text-2xl text-primary-dark group-hover:text-white transition-all duration-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Title -->
-                    <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-4 text-center group-hover:text-yellow-400 transition-all duration-300">
-                        الفريق
-                    </h3>
-                    
-                    <!-- Content -->
-                    <div class="text-center">
-                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                            عمل جماعي لتحقيق النجاح المشترك
-                        </p>
-                        
-                        <!-- Points - محاذاة من اليسار لليمين -->
-                        <div class="space-y-4">
-                            <!-- Point 1 -->
-                            <div class="flex items-center gap-2 justify-center">
-                                <!-- الأيقونة أولاً على اليسار -->
-                                <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
-                                    <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
-                                </div>
-                                <!-- النص قريب جداً من الأيقونة -->
-                                <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">التعاون المستمر</span>
-                            </div>
-                            
-                            <!-- Point 2 -->
-                            <div class="flex items-center gap-2 justify-center">
-                                <!-- الأيقونة أولاً على اليسار -->
-                                <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
-                                    <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
-                                </div>
-                                <!-- النص قريب جداً من الأيقونة -->
-                                <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">الـدعـم المتبـادل</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- ===================================================== -->
-    <!-- Footer - ENHANCED VERSION -->
-<footer class="bg-primary-dark text-white py-10">
-    <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-4 gap-8">
-            <!-- Company Info -->
-            <div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 bg-accent-yellow rounded-lg flex items-center justify-center ml-3">
-                        <i class="fas fa-lightbulb text-primary-dark text-xl"></i>
-                    </div>
-                    <!-- Gradient text: Yellow & White -->
-                    <span class="font-heading font-bold text-2xl bg-gradient-to-r from-accent-yellow to-white bg-clip-text text-transparent">Day Idea Company</span>
-                </div>
-                <p class="text-blue-100 leading-relaxed">
-                    نحو أفكار اليوم، حلول الغد. شريكك في التحول الرقمي.
+    </section>
+
+    <!-- Values -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary-dark dark:text-white mb-6">
+                    <span class="bg-gradient-to-r from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent dark:from-yellow-400 dark:via-gray-100 dark:to-yellow-400 drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)]">
+                        قيمنا
+                    </span>
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    المبادئ التي نعمل وفقها في كل مشروع
                 </p>
             </div>
 
-            <!-- Quick Links -->
-            <div>
-                <h3 class="font-heading font-bold text-lg mb-4 text-accent-yellow">روابط سريعة</h3>
-                <ul class="space-y-2">
-                    <li><a href="index.html" class="text-blue-100 hover:text-accent-yellow transition-colors">الرئيسية</a></li>
-                    <li><a href="about.html" class="text-blue-100 hover:text-accent-yellow transition-colors">عن الشركة</a></li>
-                    <li><a href="services.html" class="text-blue-100 hover:text-accent-yellow transition-colors">خدماتنا</a></li>
-                    <li><a href="projects.html" class="text-blue-100 hover:text-accent-yellow transition-colors">مشاريعنا</a></li>
-                </ul>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Quality Card -->
+                <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl scroll-animate overflow-hidden group hover:shadow-[0_20px_60px_-15px_rgba(251,191,36,0.3)] hover:-translate-y-2 transition-all duration-500">
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="relative">
+                                <div class="relative w-20 h-20 bg-gradient-to-br from-yellow-300 to-accent-yellow dark:from-yellow-400 dark:to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500">
+                                    <i class="fas fa-gem text-2xl text-primary-dark group-hover:text-white transition-all duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-6 text-center group-hover:text-yellow-400 transition-all duration-300">
+                            الجودة
+                        </h3>
+                        
+                        <div class="text-center">
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                نلتزم بأعلى معايير الجودة في كل خطوة
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-2 justify-center">
+                                    <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
+                                        <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">دقـة الـتنـفيـذ</span>
+                                </div>
+                                
+                                <div class="flex items-center gap-2 justify-center">
+                                    <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
+                                        <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">مراقبة الجودة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trust Card -->
+                <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl scroll-animate overflow-hidden group hover:shadow-[0_20px_60px_-15px_rgba(251,191,36,0.3)] hover:-translate-y-2 transition-all duration-500">
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="relative">
+                                <div class="relative w-20 h-20 bg-gradient-to-br from-yellow-300 to-accent-yellow dark:from-yellow-400 dark:to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500">
+                                    <i class="fas fa-handshake text-2xl text-primary-dark group-hover:text-white transition-all duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-6 text-center group-hover:text-yellow-400 transition-all duration-300">
+                            الثقة
+                        </h3>
+                        
+                        <div class="text-center">
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                بناء علاقات طويلة الأمد مع عملائنا
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-2 justify-center">
+                                    <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
+                                        <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">الشفافية</span>
+                                </div>
+                                
+                                <div class="flex items-center gap-2 justify-center">
+                                    <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
+                                        <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">الموثوقية</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Innovation Card -->
+                <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl scroll-animate overflow-hidden group hover:shadow-[0_20px_60px_-15px_rgba(251,191,36,0.3)] hover:-translate-y-2 transition-all duration-500">
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="relative">
+                                <div class="relative w-20 h-20 bg-gradient-to-br from-yellow-300 to-accent-yellow dark:from-yellow-400 dark:to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500">
+                                    <i class="fas fa-lightbulb text-2xl text-primary-dark group-hover:text-white transition-all duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-6 text-center group-hover:text-yellow-400 transition-all duration-300">
+                            الابتكار
+                        </h3>
+                        
+                        <div class="text-center">
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                حلول مبتكرة تفوق التوقعات
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-2 justify-center">
+                                    <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
+                                        <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">التفكير الإبداعي</span>
+                                </div>
+                                
+                                <div class="flex items-center gap-2 justify-center">
+                                    <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
+                                        <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">التجديد المستمر</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teamwork Card -->
+                <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl scroll-animate overflow-hidden group hover:shadow-[0_20px_60px_-15px_rgba(251,191,36,0.3)] hover:-translate-y-2 transition-all duration-500">
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="relative">
+                                <div class="relative w-20 h-20 bg-gradient-to-br from-yellow-300 to-accent-yellow dark:from-yellow-400 dark:to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500">
+                                    <i class="fas fa-users text-2xl text-primary-dark group-hover:text-white transition-all duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="font-heading font-bold text-xl text-primary-dark dark:text-white mb-6 text-center group-hover:text-yellow-400 transition-all duration-300">
+                            الفريق
+                        </h3>
+                        
+                        <div class="text-center">
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                عمل جماعي لتحقيق النجاح المشترك
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-2 justify-center">
+                                    <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
+                                        <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">التعاون المستمر</span>
+                                </div>
+                                
+                                <div class="flex items-center gap-2 justify-center">
+                                    <div class="w-6 h-6 bg-gradient-to-br from-accent-yellow/20 to-yellow-300/20 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:from-accent-yellow group-hover:to-yellow-300 group-hover:scale-110">
+                                        <i class="fas fa-check text-accent-yellow text-xs transition-all duration-300 group-hover:text-white"></i>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-300 text-sm pr-2">الـدعـم المتبـادل</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-accent-yellow rounded-lg flex items-center justify-center ml-3">
+                            <i class="fas fa-lightbulb text-primary-dark text-xl"></i>
+                        </div>
+                        <span class="font-heading font-bold text-xl md:text-2xl bg-gradient-to-r from-accent-yellow to-white bg-clip-text text-transparent">Day Idea Company</span>
+                    </div>
+                    <p class="text-blue-100 leading-relaxed text-sm md:text-base">
+                        نحو أفكار اليوم، حلول الغد. شريكك في التحول الرقمي.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-heading font-bold text-base md:text-lg mb-4 text-accent-yellow">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-blue-100 hover:text-accent-yellow transition-colors text-sm md:text-base">الرئيسية</a></li>
+                        <li><a href="about.html" class="text-blue-100 hover:text-accent-yellow transition-colors text-sm md:text-base">عن الشركة</a></li>
+                        <li><a href="services.html" class="text-blue-100 hover:text-accent-yellow transition-colors text-sm md:text-base">خدماتنا</a></li>
+                        <li><a href="projects.html" class="text-blue-100 hover:text-accent-yellow transition-colors text-sm md:text-base">مشاريعنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-heading font-bold text-base md:text-lg mb-4 text-accent-yellow">تواصل معنا</h3>
+                    <ul class="space-y-2 text-blue-100 text-sm md:text-base">
+                        <li class="flex items-center"><i class="fas fa-envelope ml-2 text-accent-yellow"></i> info@dayidea.com</li>
+                        <li class="flex items-center"><i class="fas fa-phone ml-2 text-accent-yellow"></i> 966-551234567 +</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt ml-2 text-accent-yellow"></i> الرياض، السعودية</li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 class="font-heading font-bold text-base md:text-lg mb-4 text-accent-yellow">تابعنا</h3>
+                    <div class="flex space-x-reverse space-x-4">
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
+                                <i class="fab fa-twitter text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
+                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            </a>
+                            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
+                                Twitter
+                            </span>
+                        </div>
+
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
+                                <i class="fab fa-linkedin text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
+                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            </a>
+                            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
+                                LinkedIn
+                            </span>
+                        </div>
+
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
+                                <i class="fab fa-instagram text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
+                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            </a>
+                            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
+                                Instagram
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Contact -->
-            <div>
-                <h3 class="font-heading font-bold text-lg mb-4 text-accent-yellow">تواصل معنا</h3>
-                <ul class="space-y-2 text-blue-100">
-                    <li><i class="fas fa-envelope ml-2"></i> info@dayidea.com</li>
-                    <li><i class="fas fa-phone ml-2"></i> 966-551234567 +
-</li>
-                    <li><i class="fas fa-map-marker-alt ml-2"></i> الرياض، السعودية</li>
-                </ul>
-            </div>
-
-            <!-- Social Media - ENHANCED -->
-           <div>
-    <h3 class="font-heading font-bold text-lg mb-4 text-accent-yellow">تابعنا</h3>
-    <div class="flex space-x-reverse space-x-6">
-        <!-- Twitter - Smaller tooltip text, subtle icon scale -->
-        <div class="relative group">
-            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
-                <i class="fab fa-twitter text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </a>
-            <!-- Smaller text size -->
-            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
-                Twitter
-            </span>
-        </div>
-
-        <!-- LinkedIn - Smaller tooltip text, subtle icon scale -->
-        <div class="relative group">
-            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
-                <i class="fab fa-linkedin text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </a>
-            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
-                LinkedIn
-            </span>
-        </div>
-
-        <!-- Instagram - Smaller tooltip text, subtle icon scale -->
-        <div class="relative group">
-            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
-                <i class="fab fa-instagram text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </a>
-            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
-                Instagram
-            </span>
-        </div>
-
-        <!-- Facebook - Smaller tooltip text, subtle icon scale -->
-        <div class="relative group">
-            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-yellow-400/40 shadow-yellow-400/20 relative overflow-hidden">
-                <i class="fab fa-facebook text-base transition-all duration-300 group-hover:text-white dark:group-hover:text-white group-hover:scale-110 relative z-10"></i>
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </a>
-            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white dark:text-yellow-300 font-heading font-bold whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] text-sm">
-                Facebook
-            </span>
-        </div>
-    </div>
-</div>
-        </div>
-
-        <!-- Enhanced Yellow Line -->
-            <div class="border-t border-accent-yellow mt-8 pt-4 text-center text-blue-200">
+            <!-- Copyright -->
+            <div class="border-t border-accent-yellow mt-8 pt-4 text-center text-blue-200 text-sm md:text-base">
                 <p>&copy; جميع الحقوق محفوظة لشركة فكرة اليوم 2025</p>
             </div>
-    </div>
-</footer>
+        </div>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="js/dark-mode.js"></script>
-    <script src="js/main.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // ============================================
+        // DARK MODE TOGGLE - SIMPLE WORKING VERSION
+        // ============================================
+
+        // Initialize dark mode
+        function initializeDarkMode() {
+            const savedTheme = localStorage.getItem('day-idea-theme');
+            const html = document.documentElement;
+            const toggleButton = document.getElementById('dark-mode-toggle');
+            const icon = toggleButton?.querySelector('i');
+            
+            if (savedTheme === 'dark') {
+                html.classList.add('dark');
+                if (icon) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            } else if (savedTheme === 'light') {
+                html.classList.remove('dark');
+                if (icon) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            } else {
+                // Default: dark on desktop, light on mobile
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile) {
+                    html.classList.remove('dark');
+                    if (icon) icon.classList.add('fa-moon');
+                } else {
+                    html.classList.add('dark');
+                    if (icon) {
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                    }
+                }
+            }
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const toggleButton = document.getElementById('dark-mode-toggle');
+            const icon = toggleButton.querySelector('i');
+            
+            if (html.classList.contains('dark')) {
+                // Switch to light mode
+                html.classList.remove('dark');
+                localStorage.setItem('day-idea-theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                // Switch to dark mode
+                html.classList.add('dark');
+                localStorage.setItem('day-idea-theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+            
+            // Add animation
+            toggleButton.style.transform = 'scale(1.2) rotate(180deg)';
+            setTimeout(() => {
+                toggleButton.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+        }
+
+        // ============================================
+        // MAIN JAVASCRIPT FUNCTIONS
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded - initializing dark mode...');
+            
+            // Initialize dark mode
+            initializeDarkMode();
+            
+            // Setup dark mode toggle button
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            if (darkModeToggle) {
+                console.log('Dark mode toggle button found');
+                darkModeToggle.addEventListener('click', function(e) {
+                    console.log('Dark mode toggle clicked');
+                    e.preventDefault();
+                    toggleDarkMode();
+                });
+            } else {
+                console.error('Dark mode toggle button NOT found!');
+            }
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('show');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-bars');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-times');
+                    } else {
+                        mobileMenu.classList.remove('show');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                        }, 400);
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    }
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileMenu.classList.remove('show');
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    }
+                });
+            }
+            
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+            
+            // Lazy loading images
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-load');
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '50px 0px' });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
+            
+            // Active nav link
+            function setActiveNavLink() {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('header nav a');
+                
+                navLinks.forEach(link => {
+                    const linkHref = link.getAttribute('href');
+                    if (linkHref === currentPage) {
+                        link.classList.add('text-yellow-400');
+                    }
+                });
+            }
+            
+            setActiveNavLink();
+            
+            // Window resize handler
+            window.addEventListener('resize', () => {
+                // Close mobile menu on desktop
+                if (window.innerWidth >= 768) {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                    
+                    if (mobileMenu && mobileMenuBtn) {
+                        mobileMenu.classList.remove('show');
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

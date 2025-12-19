@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: { 
@@ -80,6 +80,17 @@
             align-items: flex-start;
         }
         
+        /* Mobile menu */
+        #mobile-menu {
+            transition: all 0.4s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        #mobile-menu.show {
+            max-height: 500px;
+        }
+        
         /* تعديل overlay الصور - اصفر مع نص أسود */
         .project-overlay {
             background: linear-gradient(to top, rgba(255, 209, 102, 0.9), rgba(255, 209, 102, 0.7));
@@ -133,6 +144,55 @@
         .social-section h3 {
             margin-bottom: 1rem !important;
         }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .grid-cols-1 {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            .text-2xl {
+                font-size: 1.25rem !important;
+            }
+            
+            .text-lg {
+                font-size: 1rem !important;
+            }
+            
+            .p-8 {
+                padding: 1.5rem !important;
+            }
+            
+            .gap-12 {
+                gap: 2rem !important;
+            }
+            
+            /* Mobile touch improvements */
+            button, a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* تحسين أزرار الفلتر في الموبايل */
+            .filter-btn {
+                padding: 0.75rem 1rem !important;
+                font-size: 0.875rem !important;
+            }
+            
+            .filter-btn i {
+                font-size: 0.875rem !important;
+            }
+        }
     </style>
 </head>
 <body class="font-body bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
@@ -161,12 +221,17 @@
                     </div>
                     
                     <div class="flex flex-col leading-none text-group">
-                        <span class="font-heading font-extrabold text-base lg:text-lg text-accent-yellow leading-none transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">DAY IDEA</span>
-                        <span class="font-body font-bold text-sm lg:text-base text-accent-yellow leading-none -mt-1 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">فكرة اليوم</span>
+                        <span class="font-heading font-extrabold text-base lg:text-lg text-accent-yellow leading-none">DAY IDEA</span>
+                        <span class="font-body font-bold text-sm lg:text-base text-accent-yellow leading-none -mt-1">فكرة اليوم</span>
                     </div>
                 </a>
                 
-                <!-- Navigation (Center) -->
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-primary-dark dark:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex flex-1 justify-center">
                     <div class="flex items-center gap-8">
                         <a href="index.html" class="nav-link relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
@@ -185,31 +250,29 @@
                             مشاريعنا
                             <span class="nav-underline absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
                         </a>
-                        
                     </div>
                 </div>
                 
-                <!-- Contact Button -->
+                <!-- Desktop Contact Button -->
                 <div class="hidden md:block">
                     <a href="contact.html" class="glow-button bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold hover:bg-yellow-400 hover:text-white transform hover:scale-110 transition-all duration-300 shadow-lg">
                         تواصل معنا
                     </a>
                 </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-primary-dark dark:text-white">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
-                <a href="index.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">الرئيسية</a>
-                <a href="about.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">عن الشركة</a>
-                <a href="services.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">خدماتنا</a>
-                <a href="projects.html" class="block py-2 text-accent-yellow font-bold">مشاريعنا</a>
-                <a href="contact.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">تواصل معنا</a>
-                <a href="contact.html" class="inline-block mt-4 bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold">تواصل معنا</a>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-3 py-4">
+                    <a href="index.html" class="block py-2 px-4 text-primary-dark dark:text-white hover:text-accent-yellow hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">الرئيسية</a>
+                    <a href="about.html" class="block py-2 px-4 text-primary-dark dark:text-white hover:text-accent-yellow hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">عن الشركة</a>
+                    <a href="services.html" class="block py-2 px-4 text-primary-dark dark:text-white hover:text-accent-yellow hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">خدماتنا</a>
+                    <a href="projects.html" class="block py-2 px-4 text-accent-yellow font-bold hover:bg-yellow-50 dark:hover:bg-gray-700 rounded-lg transition-colors">مشاريعنا</a>
+                    <a href="contact.html" class="block py-2 px-4 text-primary-dark dark:text-white hover:text-accent-yellow hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">تواصل معنا</a>
+                    <a href="contact.html" class="block mt-2 bg-accent-yellow text-primary-dark py-2 px-4 rounded-full font-heading font-bold text-center hover:bg-yellow-400 transition-all">
+                        تواصل معنا
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -234,7 +297,7 @@
             <div class="flex flex-wrap justify-center gap-4 mb-8 scroll-animate">
                 <button class="filter-btn active bg-gradient-to-r from-accent-yellow to-yellow-400 text-primary-dark px-6 py-3 rounded-full font-heading font-bold transition-all duration-300 shadow-lg flex items-center gap-2" data-filter="all">
                     <i class="fas fa-th-large text-lg"></i>
-                   بعض المشاريع
+                    كل المشاريع
                 </button>
                 <button class="filter-btn bg-gradient-to-r from-accent-yellow to-yellow-400 text-primary-dark px-6 py-3 rounded-full font-heading font-bold transition-all duration-300 shadow-lg flex items-center gap-2" data-filter="mobile">
                     <i class="fas fa-mobile-alt text-lg"></i>
@@ -510,8 +573,150 @@
     </footer>
 
     <script>
-        // Filter Projects Script
+        // ============================================
+        // DARK MODE TOGGLE - SIMPLE WORKING VERSION
+        // ============================================
+
+        // Initialize dark mode
+        function initializeDarkMode() {
+            const savedTheme = localStorage.getItem('day-idea-theme');
+            const html = document.documentElement;
+            const toggleButton = document.getElementById('dark-mode-toggle');
+            const icon = toggleButton?.querySelector('i');
+            
+            if (savedTheme === 'dark') {
+                html.classList.add('dark');
+                if (icon) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            } else if (savedTheme === 'light') {
+                html.classList.remove('dark');
+                if (icon) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            } else {
+                // Default: dark on desktop, light on mobile
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile) {
+                    html.classList.remove('dark');
+                    if (icon) icon.classList.add('fa-moon');
+                } else {
+                    html.classList.add('dark');
+                    if (icon) {
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                    }
+                }
+            }
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const toggleButton = document.getElementById('dark-mode-toggle');
+            const icon = toggleButton.querySelector('i');
+            
+            if (html.classList.contains('dark')) {
+                // Switch to light mode
+                html.classList.remove('dark');
+                localStorage.setItem('day-idea-theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                // Switch to dark mode
+                html.classList.add('dark');
+                localStorage.setItem('day-idea-theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+            
+            // Add animation
+            toggleButton.style.transform = 'scale(1.2) rotate(180deg)';
+            setTimeout(() => {
+                toggleButton.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+        }
+
+        // ============================================
+        // MAIN JAVASCRIPT FUNCTIONS
+        // ============================================
+
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded - initializing dark mode...');
+            
+            // Loading screen
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+            
+            // Initialize dark mode
+            initializeDarkMode();
+            
+            // Setup dark mode toggle button
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            if (darkModeToggle) {
+                console.log('Dark mode toggle button found');
+                darkModeToggle.addEventListener('click', function(e) {
+                    console.log('Dark mode toggle clicked');
+                    e.preventDefault();
+                    toggleDarkMode();
+                });
+            } else {
+                console.error('Dark mode toggle button NOT found!');
+            }
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('show');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-bars');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-times');
+                    } else {
+                        mobileMenu.classList.remove('show');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                        }, 400);
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    }
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileMenu.classList.remove('show');
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    }
+                });
+            }
+            
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+            
+            // Filter Projects Script
             const filterBtns = document.querySelectorAll('.filter-btn');
             const projectItems = document.querySelectorAll('.project-item');
             
@@ -543,38 +748,52 @@
                 });
             });
             
-            // Scroll animation
-            const scrollElements = document.querySelectorAll('.scroll-animate');
-            
-            const elementInView = (el, dividend = 1) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (
-                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-                );
-            };
-            
-            const displayScrollElement = (element) => {
-                element.classList.add('show');
-            };
-            
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.25)) {
-                        displayScrollElement(el);
+            // Lazy loading images
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-load');
+                        observer.unobserve(img);
                     }
                 });
-            };
+            }, { rootMargin: '50px 0px' });
             
-            window.addEventListener('scroll', () => {
-                handleScrollAnimation();
+            lazyImages.forEach(img => imageObserver.observe(img));
+            
+            // Active nav link
+            function setActiveNavLink() {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('header nav a');
+                
+                navLinks.forEach(link => {
+                    const linkHref = link.getAttribute('href');
+                    if (linkHref === currentPage) {
+                        link.classList.add('text-yellow-400');
+                    }
+                });
+            }
+            
+            setActiveNavLink();
+            
+            // Window resize handler
+            window.addEventListener('resize', () => {
+                // Close mobile menu on desktop
+                if (window.innerWidth >= 768) {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                    
+                    if (mobileMenu && mobileMenuBtn) {
+                        mobileMenu.classList.remove('show');
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    }
+                }
             });
-            
-            // Initial check
-            handleScrollAnimation();
         });
     </script>
-    
-    <script src="js/dark-mode.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>
