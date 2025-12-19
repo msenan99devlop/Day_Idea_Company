@@ -1,0 +1,173 @@
+/* ============================================
+   CUSTOM STYLES FOR DAY IDEA COMPANY
+   ============================================ */
+
+/* Root Variables for Dark Mode */
+:root {
+    --primary-dark: #0D3B66;
+    --accent-yellow: #FFD166;
+    --transition: all 0.3s ease;
+}
+
+.dark {
+    --primary-dark: #FFD166;
+    --accent-yellow: #0D3B66;
+}
+
+/* Scroll Animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Service Cards Hover Effects */
+.service-card {
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(13, 59, 102, 0.15);
+}
+
+.dark .service-card:hover {
+    box-shadow: 0 15px 30px rgba(255, 209, 102, 0.1);
+}
+
+/* Project Overlay */
+.project-overlay {
+    background: linear-gradient(to top, rgba(13, 59, 102, 0.9), transparent);
+}
+
+.dark .project-overlay {
+    background: linear-gradient(to top, rgba(255, 209, 102, 0.9), transparent);
+}
+
+/* Dark Mode Toggle */
+#dark-mode-toggle {
+    transition: var(--transition);
+}
+
+#dark-mode-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+/* Back to Top Button */
+#back-to-top {
+    transition: var(--transition);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+}
+
+/* Loading Screen */
+#loading-screen {
+    opacity: 1;
+    visibility: visible;
+}
+
+#loading-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* FAQ Accordion */
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active i {
+    transform: rotate(90deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.faq-answer.show {
+    max-height: 200px;
+}
+
+/* Form Styles */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.2);
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+    box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.2);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-dark);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-yellow);
+}
+
+/* Mobile Menu Animation */
+#mobile-menu {
+    transition: max-height 0.4s ease;
+}
+
+/* Filter Buttons */
+.filter-btn.active {
+    background: var(--primary-dark);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .scroll-animate {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .service-card:hover {
+        transform: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    header, footer, #dark-mode-toggle, #back-to-top {
+        display: none;
+    }
+}
+
+/* Focus Visible for Accessibility */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid var(--accent-yellow);
+    outline-offset: 2px;
+}
