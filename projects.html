@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريعنا - Day Idea Company</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        'primary-dark': '#0D3B66', 
+                        'accent-yellow': '#FFD166' 
+                    },
+                    fontFamily: { 
+                        'heading': ['Poppins', 'sans-serif'], 
+                        'body': ['Cairo', 'sans-serif'] 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(255, 209, 102, 0.5), 
+                        0 0 40px rgba(255, 209, 102, 0.3),
+                        0 0 60px rgba(255, 209, 102, 0.1);
+            filter: brightness(1.1);
+        }
+        
+        .logo-wrapper {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-wrapper:hover {
+            filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.6));
+            box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+        }
+        
+        .logo-wrapper:hover img {
+            filter: brightness(1.2);
+        }
+        
+        .nav-link.active {
+            color: #fbbf24;
+        }
+        
+        .nav-link.active .nav-underline {
+            width: 100%;
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scroll-animate.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pr-0 {
+            padding-right: 0;
+        }
+        
+        ul li {
+            align-items: flex-start;
+        }
+        
+        /* تعديل overlay الصور - اصفر مع نص أسود */
+        .project-overlay {
+            background: linear-gradient(to top, rgba(255, 209, 102, 0.9), rgba(255, 209, 102, 0.7));
+        }
+        
+        .project-overlay h3,
+        .project-overlay p {
+            color: #0D3B66 !important;
+        }
+        
+        /* تعديل أزرار الفلتر - أصفر مع نص أسود */
+        .filter-btn {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:not(.active) {
+            background: linear-gradient(to right, #FFD166, #fbbf24);
+            color: #0D3B66;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(255, 209, 102, 0.3);
+        }
+        
+        .filter-btn.active {
+            background: white !important;
+            color: #0D3B66 !important;
+            font-weight: bold;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 209, 102, 0.5), 
+                        0 0 30px rgba(255, 209, 102, 0.2);
+            border: 2px solid #FFD166;
+        }
+        
+        .filter-btn:hover:not(.active) {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 209, 102, 0.4);
+        }
+        
+        /* تعديل أيقونات التواصل الاجتماعي في الفوتر */
+        .social-icon {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 209, 102, 0.5);
+        }
+        
+        /* تعديل النص فوق أيقونات التواصل */
+        .social-section h3 {
+            margin-bottom: 1rem !important;
+        }
+    </style>
+</head>
+<body class="font-body bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-primary-dark flex items-center justify-center z-[9999] transition-opacity duration-500">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-accent-yellow border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="text-white font-heading text-lg">جاري التحميل...</p>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" class="fixed bottom-6 left-6 z-50 bg-accent-yellow text-primary-dark w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
+        <i class="fas fa-moon text-xl"></i>
+    </button>
+
+    <!-- Header - متطابق مع التصميم الجديد -->
+    <header class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="logo-container flex items-center group gap-4">
+                    <div class="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center overflow-hidden logo-wrapper">
+                        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-all duration-300 group-hover:scale-110">
+                    </div>
+                    
+                    <div class="flex flex-col leading-none text-group">
+                        <span class="font-heading font-extrabold text-base lg:text-lg text-accent-yellow leading-none transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">DAY IDEA</span>
+                        <span class="font-body font-bold text-sm lg:text-base text-accent-yellow leading-none -mt-1 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">فكرة اليوم</span>
+                    </div>
+                </a>
+                
+                <!-- Navigation (Center) -->
+                <div class="hidden md:flex flex-1 justify-center">
+                    <div class="flex items-center gap-8">
+                        <a href="index.html" class="nav-link relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
+                            الرئيسية
+                            <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="about.html" class="nav-link relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
+                            عن الشركة
+                            <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="services.html" class="nav-link relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
+                            خدماتنا
+                            <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="projects.html" class="nav-link relative text-yellow-400 hover:text-yellow-300 transition-all font-bold text-base lg:text-lg py-2 group">
+                            مشاريعنا
+                            <span class="nav-underline absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <!-- Contact Button -->
+                <div class="hidden md:block">
+                    <a href="contact.html" class="glow-button bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold hover:bg-yellow-400 hover:text-white transform hover:scale-110 transition-all duration-300 shadow-lg">
+                        تواصل معنا
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-primary-dark dark:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+                <a href="index.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">الرئيسية</a>
+                <a href="about.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">عن الشركة</a>
+                <a href="services.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">خدماتنا</a>
+                <a href="projects.html" class="block py-2 text-accent-yellow font-bold">مشاريعنا</a>
+                <a href="contact.html" class="block py-2 text-primary-dark dark:text-white hover:text-accent-yellow">تواصل معنا</a>
+                <a href="contact.html" class="inline-block mt-4 bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold">تواصل معنا</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section - محسن مع التدرج اللوني -->
+    <section class="pt-24 pb-2 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="font-heading font-bold text-4xl md:text-5xl mb-2 scroll-animate">
+                <span class="bg-gradient-to-r from-yellow-400 via-white to-yellow-400 bg-clip-text text-transparent dark:from-yellow-400 dark:via-gray-100 dark:to-yellow-400 drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)]">
+                    مشاريعنا المميزة
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto scroll-animate mb-0">
+                مجموعة من أعمالنا التي تعكس احترافيتنا وإبداعنا في كل تفصيل
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Buttons - تصميم محسن مع أيقونات -->
+    <section class="py-8 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4 mb-8 scroll-animate">
+                <button class="filter-btn active bg-gradient-to-r from-accent-yellow to-yellow-400 text-primary-dark px-6 py-3 rounded-full font-heading font-bold transition-all duration-300 shadow-lg flex items-center gap-2" data-filter="all">
+                    <i class="fas fa-th-large text-lg"></i>
+                   بعض المشاريع
+                </button>
+                <button class="filter-btn bg-gradient-to-r from-accent-yellow to-yellow-400 text-primary-dark px-6 py-3 rounded-full font-heading font-bold transition-all duration-300 shadow-lg flex items-center gap-2" data-filter="mobile">
+                    <i class="fas fa-mobile-alt text-lg"></i>
+                    تطبيقات الموبايل
+                </button>
+                <button class="filter-btn bg-gradient-to-r from-accent-yellow to-yellow-400 text-primary-dark px-6 py-3 rounded-full font-heading font-bold transition-all duration-300 shadow-lg flex items-center gap-2" data-filter="web">
+                    <i class="fas fa-laptop-code text-lg"></i>
+                    مواقع ويب
+                </button>
+                <button class="filter-btn bg-gradient-to-r from-accent-yellow to-yellow-400 text-primary-dark px-6 py-3 rounded-full font-heading font-bold transition-all duration-300 shadow-lg flex items-center gap-2" data-filter="design">
+                    <i class="fas fa-palette text-lg"></i>
+                    تصميم
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="pb-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                
+                <!-- Project 1: E-commerce -->
+                <div class="project-item scroll-animate" data-category="web">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop" 
+                             alt="منصة تجارة إلكترونية" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">منصة تجارة إلكترونية</h3>
+                                <p class="text-sm mb-4 text-primary-dark">تطبيق ويب متكامل مع لوحة تحكم للإدارة</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">تجارة إلكترونية</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Analytics Dashboard -->
+                <div class="project-item scroll-animate" data-category="web">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" 
+                             alt="نظام تحليل بيانات" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">نظام تحليل بيانات</h3>
+                                <p class="text-sm mb-4 text-primary-dark">لوحة تحكم متقدمة مع رسوم بيانية تفاعلية</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">لوحة تحكم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Task App -->
+                <div class="project-item scroll-animate" data-category="mobile">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" 
+                             alt="تطبيق إدارة مهام" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">تطبيق إدارة مهام</h3>
+                                <p class="text-sm mb-4 text-primary-dark">iOS & Android مع مزامنة سحابية</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">تطبيق موبايل</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Education Platform -->
+                <div class="project-item scroll-animate" data-category="web">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=300&fit=crop" 
+                             alt="منصة تعليمية" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">منصة تعليمية تفاعلية</h3>
+                                <p class="text-sm mb-4 text-primary-dark">تعليم عن بعد مع فيديوهات وواجبات</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">تعليم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Hotel Booking -->
+                <div class="project-item scroll-animate" data-category="mobile">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=300&fit=crop" 
+                             alt="نظام حجز فندقي" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">نظام حجز فندقي</h3>
+                                <p class="text-sm mb-4 text-primary-dark">حجوزات فورية مع دفع آمن</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">سياحة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Banking App -->
+                <div class="project-item scroll-animate" data-category="mobile">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&h=300&fit=crop" 
+                             alt="تطبيق بنكي" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">تطبيق بنك رقمي</h3>
+                                <p class="text-sm mb-4 text-primary-dark">خدمات مالية متطورة مع أعلى معايير الأمان</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">تمويل</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Brand Design -->
+                <div class="project-item scroll-animate" data-category="design">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop" 
+                             alt="هوية بصرية" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">هوية بصرية متكاملة</h3>
+                                <p class="text-sm mb-4 text-primary-dark">تصميم شعار، ألوان، وخطوط لعلامة تجارية</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">تصميم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Dashboard UI -->
+                <div class="project-item scroll-animate" data-category="design">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=300&fit=crop" 
+                             alt="واجهة تحكم" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">تصميم لوحة تحكم</h3>
+                                <p class="text-sm mb-4 text-primary-dark">UI/UX لتطبيق إداري معقد</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">تصميم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: Food Delivery -->
+                <div class="project-item scroll-animate" data-category="mobile">
+                    <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500">
+                        <img data-src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop" 
+                             alt="توصيل طعام" 
+                             class="lazy-load w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="p-6 w-full">
+                                <h3 class="font-heading font-bold text-xl mb-2">تطبيق توصيل طعام</h3>
+                                <p class="text-sm mb-4 text-primary-dark">خدمة توصيل سريعة مع تتبع مباشر</p>
+                                <span class="bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">خدمات</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section - محسن -->
+    <section class="py-16 bg-primary-dark">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
+                <span class="bg-gradient-to-r from-accent-yellow to-white bg-clip-text text-transparent">
+                    لديك مشروع مشابه؟
+                </span>
+            </h2>
+            <p class="text-blue-100 text-lg mb-6 max-w-2xl mx-auto">
+                دعنا نناقش أفكارك ونحولها إلى واقع ملموس
+            </p>
+            <a href="contact.html" class="inline-block bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-8 py-3 rounded-full font-heading font-bold text-lg hover:from-yellow-500 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-xl">
+                <i class="fas fa-rocket ml-2"></i>
+                ابدأ مشروعك
+            </a>
+        </div>
+    </section>
+
+    <!-- Divider Line -->
+    <div class="h-px bg-gradient-to-r from-transparent via-accent-yellow to-transparent"></div>
+
+    <!-- Footer - متطابق مع التصميم الجديد -->
+    <footer class="bg-primary-dark text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-accent-yellow rounded-lg flex items-center justify-center ml-3">
+                            <i class="fas fa-lightbulb text-primary-dark text-xl"></i>
+                        </div>
+                        <span class="font-heading font-bold text-2xl bg-gradient-to-r from-accent-yellow to-white bg-clip-text text-transparent">Day Idea Company</span>
+                    </div>
+                    <p class="text-blue-100 leading-relaxed text-right">
+                        نحو أفكار اليوم، حلول الغد. شريكك في التحول الرقمي.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-heading font-bold text-lg mb-3 text-accent-yellow text-right">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li class="text-right"><a href="index.html" class="text-blue-100 hover:text-accent-yellow transition-colors">الرئيسية</a></li>
+                        <li class="text-right"><a href="about.html" class="text-blue-100 hover:text-accent-yellow transition-colors">عن الشركة</a></li>
+                        <li class="text-right"><a href="services.html" class="text-blue-100 hover:text-accent-yellow transition-colors">خدماتنا</a></li>
+                        <li class="text-right"><a href="projects.html" class="text-accent-yellow font-bold">مشاريعنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-heading font-bold text-lg mb-3 text-accent-yellow text-right">تواصل معنا</h3>
+                    <ul class="space-y-2 text-blue-100 text-right">
+                        <li><i class="fas fa-envelope ml-2"></i> info@dayidea.com</li>
+                        <li><i class="fas fa-phone ml-2"></i> +966-551234567</li>
+                        <li><i class="fas fa-map-marker-alt ml-2"></i> الرياض، السعودية</li>
+                    </ul>
+                </div>
+
+                <!-- Social Media - تم تحسين المسافة -->
+                <div class="social-section">
+                    <h3 class="font-heading font-bold text-lg mb-3 text-accent-yellow text-right">تابعنا</h3>
+                    <div class="flex space-x-reverse space-x-6 justify-end">
+                        <!-- Twitter -->
+                        <div class="social-icon relative">
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden">
+                                <i class="fab fa-twitter text-base relative z-10"></i>
+                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 hover:opacity-100 transition-opacity"></div>
+                            </a>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="social-icon relative">
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden">
+                                <i class="fab fa-linkedin text-base relative z-10"></i>
+                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 hover:opacity-100 transition-opacity"></div>
+                            </a>
+                        </div>
+
+                        <!-- Instagram -->
+                        <div class="social-icon relative">
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden">
+                                <i class="fab fa-instagram text-base relative z-10"></i>
+                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 hover:opacity-100 transition-opacity"></div>
+                            </a>
+                        </div>
+
+                        <!-- Facebook -->
+                        <div class="social-icon relative">
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-accent-yellow to-yellow-400 text-primary-dark rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden">
+                                <i class="fab fa-facebook text-base relative z-10"></i>
+                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-accent-yellow opacity-0 hover:opacity-100 transition-opacity"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Yellow Line -->
+            <div class="border-t border-accent-yellow mt-8 pt-4 text-center text-blue-200">
+                <p>&copy; جميع الحقوق محفوظة لشركة فكرة اليوم 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter Projects Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Scroll animation
+            const scrollElements = document.querySelectorAll('.scroll-animate');
+            
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('show');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+            
+            // Initial check
+            handleScrollAnimation();
+        });
+    </script>
+    
+    <script src="js/dark-mode.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
