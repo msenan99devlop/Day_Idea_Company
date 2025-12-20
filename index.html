@@ -235,6 +235,43 @@
             outline-offset: 2px;
         }
 
+        /* Enhanced Typewriter Container */
+        .typewriter-container {
+            position: relative;
+            display: inline-block;
+            min-height: 1.2em;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
+        /* Enhanced Text Highlighting */
+        .text-highlight {
+            background: linear-gradient(135deg, var(--accent-yellow), #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 209, 102, 0.3);
+            filter: drop-shadow(0 0 10px rgba(255, 209, 102, 0.4));
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% {
+                filter: drop-shadow(0 0 5px rgba(255, 209, 102, 0.3));
+            }
+            100% {
+                filter: drop-shadow(0 0 20px rgba(255, 209, 102, 0.6));
+            }
+        }
+
+        .dark .text-highlight {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #eab308);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .scroll-animate {
@@ -425,9 +462,11 @@
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                 <div class="flex-1 text-right lg:text-right">
                     <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight" style="min-height: 1.2em;">
-                        <span id="typewriter-first" class="text-yellow-400"></span>
-                        <span id="typewriter-second" class="text-gray-800 dark:text-white"></span>
-                        <span class="blinking-cursor">|</span>
+                        <div class="typewriter-container">
+                            <span id="typewriter-first" class="text-highlight"></span>
+                            <span id="typewriter-second" class="text-gray-800 dark:text-white"></span>
+                            <span class="blinking-cursor">|</span>
+                        </div>
                     </h1>
                     <p class="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-prose">
                         نحن في فكرة اليوم نسعى لتحويل أفكارك إلى واقع رقمي مبتكر من خلال حلول برمجية متقدمة ومخصصة لاحتياجاتك
@@ -467,17 +506,13 @@
                 
                 <div class="scroll-animate space-y-8">
                     <div class="scroll-animate space-y-8">
-    <h2 class="font-heading font-bold text-5xl md:text-6xl text-primary-dark dark:text-white leading-tight text-center">
-        لماذا تختار 
-        <span class="text-yellow-500 
-                     dark:text-yellow-400
-                     drop-shadow-[0_4px_8px_rgba(234,179,8,0.6)]
-                     dark:drop-shadow-[0_6px_12px_rgba(234,179,8,0.8)]
-                     font-black">
-            فكرة اليوم؟
-        </span>
-    </h2>
-</div>
+                        <h2 class="font-heading font-bold text-5xl md:text-6xl text-primary-dark dark:text-white leading-tight text-center">
+                            لماذا تختار 
+                            <span class="text-highlight font-black">
+                                فكرة اليوم؟
+                            </span>
+                        </h2>
+                    </div>
 
                     <p class="text-gray-600 dark:text-gray-300 text-xl leading-relaxed max-w-prose mx-auto text-center">
                         نجمع بين الإبداع والخبرة التقنية لتقديم حلول برمجية مميزة تلبي احتياجاتك الفعلية وتفوق توقعاتك بمراحل.
@@ -959,73 +994,91 @@
             lazyImages.forEach(img => imageObserver.observe(img));
             
             // ========================
-            // TYPEWRITER EFFECT
+            // TYPEWRITER EFFECT - CONTINUOUS LOOP
             // ========================
             function initTypewriter() {
                 const firstElement = document.getElementById('typewriter-first');
                 const secondElement = document.getElementById('typewriter-second');
                 
-                if (!firstElement || !secondElement) return;
+                if (!firstElement || !secondElement) return; // Exit if elements not found
                 
-                const firstPart = 'أفكار اليوم ';
-                const secondPart = 'حلول للغد';
+                const firstPart = 'أفـكار اليـوم ';
+                const secondPart = ' مستقبل الغـد ';
                 let index = 0;
                 let isWritingFirst = true;
                 let isDeleting = false;
                 
                 function typeWriter() {
+                    // === WRITING PHASE ===
                     if (!isDeleting) {
                         if (isWritingFirst) {
-                            if (index <= firstPart.length) {
-                                firstElement.textContent = firstPart.substring(0, index);
+                            // Writing first part (yellow)
+                            if (index < firstPart.length) {
+                                firstElement.textContent = firstPart.substring(0, index + 1);
                                 index++;
                             } else {
+                                // First part complete, move to second
                                 isWritingFirst = false;
                                 index = 0;
                             }
                         } else {
-                            if (index <= secondPart.length) {
-                                secondElement.textContent = secondPart.substring(0, index);
+                            // Writing second part (white/gray)
+                            if (index < secondPart.length) {
+                                secondElement.textContent = secondPart.substring(0, index + 1);
                                 index++;
                             } else {
+                                // Complete text written - PAUSE
                                 setTimeout(() => {
                                     isDeleting = true;
-                                    index = secondPart.length;
+                                    index = secondPart.length - 1;
+                                    typeWriter();
                                 }, 1500);
                                 return;
                             }
                         }
-                    } else {
-                        if (index >= 0) {
-                            if (isWritingFirst) {
+                    } 
+                    // === DELETING PHASE ===
+                    else {
+                        if (isWritingFirst) {
+                            // Deleting first part
+                            if (index >= 0) {
                                 firstElement.textContent = firstPart.substring(0, index);
                                 index--;
                             } else {
-                                secondElement.textContent = secondPart.substring(0, index);
-                                index--;
+                                // First part deleted, move to second
+                                isWritingFirst = false;
+                                index = secondPart.length - 1;
                             }
                         } else {
-                            if (isWritingFirst) {
-                                isWritingFirst = false;
-                                isDeleting = false;
-                                index = 0;
+                            // Deleting second part
+                            if (index >= 0) {
+                                secondElement.textContent = secondPart.substring(0, index);
+                                index--;
                             } else {
-                                isWritingFirst = true;
-                                isDeleting = false;
-                                index = 0;
-                                setTimeout(typeWriter, 800);
+                                // Complete text deleted - PAUSE then RESTART
+                                setTimeout(() => {
+                                    isWritingFirst = true;
+                                    isDeleting = false;
+                                    index = 0;
+                                    firstElement.textContent = '';
+                                    secondElement.textContent = '';
+                                    typeWriter();
+                                }, 800);
                                 return;
                             }
                         }
                     }
                     
+                    // Schedule next character
                     const typingSpeed = isDeleting ? 60 : 120;
                     setTimeout(typeWriter, typingSpeed);
                 }
                 
+                // Start the infinite loop
                 typeWriter();
             }
             
+            // Initialize typewriter effect
             initTypewriter();
             
             // ========================
