@@ -1,6 +1,5 @@
 /* ============================================
    MAIN STYLES FOR DAY IDEA COMPANY
-   جميع الأنماط المشتركة بين الصفحات
    ============================================ */
 
 /* =============
@@ -9,22 +8,14 @@
 :root {
     --primary-dark: #0D3B66;
     --accent-yellow: #FFD166;
-    --nav-light-blue: #2563eb;
-    --nav-light-blue-hover: #1d4ed8;
-    --nav-light-underline: #2563eb;
-    --transition: all 0.3s ease;
+    --transition: 0.3s ease;
     --shadow-yellow: rgba(251, 191, 36, 0.6);
-    --header-bg: #0D3B66; /* إضافة متغير للنافبار */
 }
 
 .dark {
     --primary-dark: #FFD166;
     --accent-yellow: #0D3B66;
-    --nav-light-blue: #fbbf24;
-    --nav-light-blue-hover: #f59e0b;
-    --nav-light-underline: #fbbf24;
     --shadow-yellow: rgba(234, 179, 8, 0.6);
-    --header-bg: #0D3B66; /* الحفاظ على نفس اللون للنافبار في الوضع الداكن */
 }
 
 /* =============
@@ -44,64 +35,21 @@ body {
 }
 
 /* =============
-   HEADER & NAVBAR STYLES - IMPORTANT
+   HEADER & NAVBAR
    ============= */
-/* تأكيد لون النافبار - اللون الأزرق في كلا الوضعين */
 header {
-    background-color: #0D3B66 !important;
+    background: #0D3B66 !important;
 }
 
-.dark header {
-    background-color: #0D3B66 !important;
-}
-
-/* تحسين ألوان الروابط في النافبار */
-.nav-link {
-    color: white !important;
-}
-
-.dark .nav-link {
-    color: white !important;
-}
-
-.nav-link:hover {
-    color: #FFD166 !important;
-}
-
-.dark .nav-link:hover {
-    color: #FFD166 !important;
-}
-
-.nav-link[data-active="true"] {
-    color: #FFD166 !important;
-}
-
-.dark .nav-link[data-active="true"] {
-    color: #FFD166 !important;
-}
-
-/* Mobile nav links */
+.nav-link,
 .mobile-nav-link {
     color: white !important;
 }
 
-.dark .mobile-nav-link {
-    color: white !important;
-}
-
-.mobile-nav-link:hover {
-    color: #FFD166 !important;
-}
-
-.dark .mobile-nav-link:hover {
-    color: #FFD166 !important;
-}
-
+.nav-link:hover,
+.nav-link[data-active="true"],
+.mobile-nav-link:hover,
 .mobile-nav-link[data-active="true"] {
-    color: #FFD166 !important;
-}
-
-.dark .mobile-nav-link[data-active="true"] {
     color: #FFD166 !important;
 }
 
@@ -134,9 +82,8 @@ header {
 }
 
 /* =============
-   NAVIGATION CONTROLS
+   MOBILE MENU
    ============= */
-/* Mobile menu */
 #mobile-menu {
     transition: all 0.4s ease;
     max-height: 0;
@@ -147,15 +94,9 @@ header {
     max-height: 500px;
 }
 
-/* Logo hover effects */
-.logo-container:hover img {
-    transform: scale(1.1);
-}
-
 /* =============
-   PROJECTS PAGE SPECIFIC
+   PROJECTS PAGE
    ============= */
-/* Project overlay - yellow on hover */
 .project-item .group:hover .project-overlay {
     background: linear-gradient(to top, rgba(255, 209, 102, 0.9), rgba(255, 209, 102, 0.7)) !important;
     opacity: 1 !important;
@@ -166,7 +107,6 @@ header {
     color: #0D3B66 !important;
 }
 
-/* Filter buttons - important styles */
 .filter-btn.active {
     background: white !important;
     color: #0D3B66 !important;
@@ -174,9 +114,8 @@ header {
 }
 
 /* =============
-   SERVICES PAGE SPECIFIC
+   SERVICES PAGE
    ============= */
-/* Service Cards Hover Effects */
 .service-card {
     transition: var(--transition);
 }
@@ -191,78 +130,13 @@ header {
 }
 
 /* =============
-   CONTACT PAGE SPECIFIC
+   FORM STYLES
    ============= */
-/* Form input focus effects */
 .form-input:focus {
     box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.3);
     outline: none;
 }
 
-/* =============
-   BUTTONS & CONTROLS
-   ============= */
-/* Dark Mode Toggle */
-#dark-mode-toggle {
-    transition: var(--transition);
-}
-
-#dark-mode-toggle:hover {
-    transform: scale(1.1) rotate(15deg);
-}
-
-/* Back to Top Button */
-#back-to-top {
-    transition: var(--transition);
-}
-
-#back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-#back-to-top:hover {
-    transform: translateY(-5px);
-}
-
-/* Glow Button Effect */
-.glow-button {
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.glow-button:hover {
-    box-shadow: 0 0 20px rgba(255, 209, 102, 0.5), 
-                0 0 40px rgba(255, 209, 102, 0.3),
-                0 0 60px rgba(255, 209, 102, 0.1);
-    filter: brightness(1.1);
-}
-
-/* =============
-   ACCORDION & FAQ
-   ============= */
-/* FAQ Accordion */
-.faq-question i {
-    transition: transform 0.3s ease;
-}
-
-.faq-question.active i {
-    transform: rotate(90deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-
-.faq-answer.show {
-    max-height: 200px;
-}
-
-/* =============
-   FORM STYLES
-   ============= */
 input:focus,
 textarea:focus,
 select:focus {
@@ -274,6 +148,30 @@ select:focus {
 .dark textarea:focus,
 .dark select:focus {
     box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.2);
+}
+
+/* =============
+   BUTTONS & CONTROLS
+   ============= */
+#dark-mode-toggle {
+    transition: var(--transition);
+}
+
+#dark-mode-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+#back-to-top {
+    transition: var(--transition);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
 }
 
 /* =============
@@ -301,21 +199,8 @@ select:focus {
 }
 
 /* =============
-   ACCESSIBILITY
+   TYPOGRAPHY EFFECTS
    ============= */
-/* Focus Visible for Accessibility */
-a:focus,
-button:focus,
-input:focus,
-textarea:focus {
-    outline: 2px solid var(--accent-yellow);
-    outline-offset: 2px;
-}
-
-/* =============
-   TYPOGRAPHY & EFFECTS
-   ============= */
-/* Blinking Cursor Animation */
 .blinking-cursor {
     animation: blink 1s infinite;
     color: #fbbf24;
@@ -328,7 +213,6 @@ textarea:focus {
     51%, 100% { opacity: 0; }
 }
 
-/* Enhanced Typewriter Container */
 .typewriter-container {
     position: relative;
     display: inline-block;
@@ -338,44 +222,10 @@ textarea:focus {
     line-height: inherit;
 }
 
-/* Simple Dark Yellow Text Highlight */
-.text-highlight {
-    color: #d4a017;
-    background: transparent;
-    text-shadow: 0 0 4px rgba(212, 160, 23, 0.25);
-}
-
-/* Dark mode adjustment */
-.dark .text-highlight {
-    color: #facc15;
-    text-shadow: 0 0 3px rgba(250, 204, 21, 0.3);
-}
-
 /* =============
    RESPONSIVE DESIGN
    ============= */
-/* Mobile Responsive */
 @media (max-width: 768px) {
-    /* تحسينات للمس الشاشة على الموبايل */
-    button, a {
-        min-height: 44px;
-        min-width: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    /* إخفاء الرسوم المتحركة على الموبايل للأداء */
-    .scroll-animate {
-        opacity: 1;
-        transform: none;
-    }
-    
-    .service-card:hover {
-        transform: none;
-    }
-    
-    /* تحسينات قائمة الموبايل */
     #mobile-menu-btn {
         display: block !important;
     }
@@ -385,16 +235,13 @@ textarea:focus {
         top: 100%;
         left: 0;
         right: 0;
-        background: #0D3B66; /* نفس لون النافبار */
+        background: #0D3B66;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
     }
     
     .dark #mobile-menu {
-        background: #0D3B66; /* نفس لون النافبار في الوضع الداكن */
+        background: #0D3B66;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
     
@@ -404,27 +251,18 @@ textarea:focus {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .dark #mobile-menu.show {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    .scroll-animate {
+        opacity: 1;
+        transform: none;
     }
     
-    /* ضبط أحجام النصوص للشاشات الصغيرة */
-    h1 {
-        font-size: 2rem !important;
+    .service-card:hover {
+        transform: none;
     }
     
-    h2 {
-        font-size: 1.75rem !important;
-    }
-    
-    /* تحسين تخطيط الشبكة للشاشات الصغيرة */
-    .grid-cols-1 {
-        grid-template-columns: 1fr;
-    }
-    
-    .grid-cols-2 {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    button, a {
+        min-height: 44px;
+        min-width: 44px;
     }
 }
 
@@ -432,59 +270,4 @@ textarea:focus {
     .grid-cols-2 {
         grid-template-columns: 1fr;
     }
-    
-    h1 {
-        font-size: 1.75rem !important;
-    }
-    
-    h2 {
-        font-size: 1.5rem !important;
-    }
-    
-    /* ضبط الهوامش للشاشات الصغيرة جداً */
-    .px-6 {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-}
-
-/* =============
-   PRINT STYLES
-   ============= */
-@media print {
-    header, footer, #dark-mode-toggle, #back-to-top {
-        display: none;
-    }
-}
-
-
-/* =============
-   NAVBAR FIXES - ALTERNATIVE APPROACH
-   ============= */
-
-/* القوة الإضافية للتأكد من لون النافبار */
-header.bg-primary-dark {
-    background-color: #0D3B66 !important;
-}
-
-header.dark\:bg-primary-dark {
-    background-color: #0D3B66 !important;
-}
-
-/* التأكد من أن لون النصوص في النافبار أبيض */
-header .text-white {
-    color: white !important;
-}
-
-header .dark\:text-white {
-    color: white !important;
-}
-
-/* التأكد من أن لون الروابط في النافبار أصفر عند التمرير */
-header .hover\:text-yellow-400:hover {
-    color: #FFD166 !important;
-}
-
-header .dark\:hover\:text-yellow-400:hover {
-    color: #FFD166 !important;
 }
