@@ -6,12 +6,18 @@
 :root {
     --primary-dark: #0D3B66;
     --accent-yellow: #FFD166;
+    --nav-light-blue: #2563eb;
+    --nav-light-blue-hover: #1d4ed8;
+    --nav-light-underline: #2563eb;
     --transition: all 0.3s ease;
 }
 
 .dark {
     --primary-dark: #FFD166;
     --accent-yellow: #0D3B66;
+    --nav-light-blue: #fbbf24;
+    --nav-light-blue-hover: #f59e0b;
+    --nav-light-underline: #fbbf24;
 }
 
 /* Scroll Animations */
@@ -103,12 +109,16 @@
 }
 
 /* Form Styles */
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.2);
 }
 
-.dark input:focus, .dark textarea:focus, .dark select:focus {
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
     box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.2);
 }
 
@@ -147,6 +157,89 @@ html {
     transform: scale(1.05);
 }
 
+/* Blinking Cursor Animation */
+.blinking-cursor {
+    animation: blink 1s infinite;
+    color: #fbbf24;
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Logo Effects */
+.logo-wrapper {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.6));
+    box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+}
+
+.logo-wrapper:hover img {
+    filter: brightness(1.2);
+}
+
+/* Glow Button Effect */
+.glow-button {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+    box-shadow: 0 0 20px rgba(255, 209, 102, 0.5), 
+                0 0 40px rgba(255, 209, 102, 0.3),
+                0 0 60px rgba(255, 209, 102, 0.1);
+    filter: brightness(1.1);
+}
+
+/* Focus Visible for Accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--accent-yellow);
+    outline-offset: 2px;
+}
+
+/* Enhanced Typewriter Container */
+.typewriter-container {
+    position: relative;
+    display: inline-block;
+    min-height: 1.2em;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+/* Simple Dark Yellow Text Highlight */
+.text-highlight {
+    color: #d4a017;
+    background: transparent;
+    text-shadow: 0 0 4px rgba(212, 160, 23, 0.25);
+}
+
+/* Dark mode adjustment */
+.dark .text-highlight {
+    color: #facc15;
+    text-shadow: 0 0 3px rgba(250, 204, 21, 0.3);
+}
+
+/* Navbar Active Page Color Fix */
+.nav-link.active-page {
+    color: #1e3a8a !important;
+}
+
+.nav-link.active-page .nav-underline {
+    width: 100% !important;
+    background-color: #1e3a8a !important;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .scroll-animate {
@@ -157,6 +250,87 @@ html {
     .service-card:hover {
         transform: none;
     }
+    
+    /* Mobile Menu Improvements */
+    #mobile-menu-btn {
+        display: block !important;
+    }
+    
+    #mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .dark #mobile-menu {
+        background: #1e293b;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #mobile-menu.show {
+        max-height: 500px;
+        padding: 1rem;
+        border-top: 1px solid #e5e7eb;
+    }
+    
+    .dark #mobile-menu.show {
+        border-top: 1px solid #374151;
+    }
+    
+    /* Mobile touch improvements */
+    button, a {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Adjust text sizes for mobile */
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    /* Improve grid layout for mobile */
+    .grid-cols-1 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 1.75rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Adjust padding for very small screens */
+    .px-6 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 /* Print Styles */
@@ -166,8 +340,3 @@ html {
     }
 }
 
-/* Focus Visible for Accessibility */
-a:focus, button:focus, input:focus, textarea:focus {
-    outline: 2px solid var(--accent-yellow);
-    outline-offset: 2px;
-}

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فكرة اليوم - Day Idea Company</title>
     <link rel="icon" href="assets/images/LOGO1.png" type="image/png">
-
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +16,9 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
     
     <script>
         tailwind.config = {
@@ -35,332 +37,6 @@
             }
         }
     </script>
-    
-    <style>
-        /* ============================================
-           CUSTOM STYLES FOR DAY IDEA COMPANY
-           ============================================ */
-
-        /* Root Variables for Dark Mode */
-        :root {
-            --primary-dark: #0D3B66;
-            --accent-yellow: #FFD166;
-            --transition: all 0.3s ease;
-        }
-
-        .dark {
-            --primary-dark: #FFD166;
-            --accent-yellow: #0D3B66;
-        }
-
-        /* Scroll Animations */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .scroll-animate.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Service Cards Hover Effects */
-        .service-card {
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(13, 59, 102, 0.15);
-        }
-
-        .dark .service-card:hover {
-            box-shadow: 0 15px 30px rgba(255, 209, 102, 0.1);
-        }
-
-        /* Project Overlay */
-        .project-overlay {
-            background: linear-gradient(to top, rgba(13, 59, 102, 0.9), transparent);
-        }
-
-        .dark .project-overlay {
-            background: linear-gradient(to top, rgba(255, 209, 102, 0.9), transparent);
-        }
-
-        /* Dark Mode Toggle */
-        #dark-mode-toggle {
-            transition: var(--transition);
-        }
-
-        #dark-mode-toggle:hover {
-            transform: scale(1.1) rotate(15deg);
-        }
-
-        /* Back to Top Button */
-        #back-to-top {
-            transition: var(--transition);
-        }
-
-        #back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #back-to-top:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Loading Screen */
-        #loading-screen {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #loading-screen.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        /* FAQ Accordion */
-        .faq-question i {
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active i {
-            transform: rotate(90deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .faq-answer.show {
-            max-height: 200px;
-        }
-
-        /* Form Styles */
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.2);
-        }
-
-        .dark input:focus, .dark textarea:focus, .dark select:focus {
-            box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.2);
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .dark ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-dark);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-yellow);
-        }
-
-        /* Mobile Menu Animation */
-        #mobile-menu {
-            transition: max-height 0.4s ease;
-        }
-
-        /* Filter Buttons */
-        .filter-btn.active {
-            background: var(--primary-dark);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        /* Typewriter Cursor */
-        .blinking-cursor {
-            animation: blink 1s infinite;
-            color: #fbbf24;
-            font-weight: bold;
-            margin-right: 3px;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        /* Logo Effects */
-        .logo-wrapper {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .logo-wrapper:hover {
-            filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.6));
-            box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
-        }
-        
-        .logo-wrapper:hover img {
-            filter: brightness(1.2);
-        }
-
-        /* Glow Button Effect */
-        .glow-button {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .glow-button:hover {
-            box-shadow: 0 0 20px rgba(255, 209, 102, 0.5), 
-                        0 0 40px rgba(255, 209, 102, 0.3),
-                        0 0 60px rgba(255, 209, 102, 0.1);
-            filter: brightness(1.1);
-        }
-
-        /* Focus Visible for Accessibility */
-        a:focus, button:focus, input:focus, textarea:focus {
-            outline: 2px solid var(--accent-yellow);
-            outline-offset: 2px;
-        }
-
-        /* Enhanced Typewriter Container */
-        .typewriter-container {
-            position: relative;
-            display: inline-block;
-            min-height: 1.2em;
-            font-size: inherit;
-            font-weight: inherit;
-            line-height: inherit;
-        }
-
-       /* Simple Dark Yellow Text Highlight */
-       .text-highlight {
-         color: #d4a017;              /* أصفر غامق أنيق */
-         background: transparent;     /* بدون خلفية */
-         text-shadow: 0 0 4px rgba(212, 160, 23, 0.25); /* 
-}
-
-/* Dark mode adjustment */
-.dark .text-highlight {
-    color: #facc15;              /* أصفر أوضح قليلاً في الوضع الداكن */
-    text-shadow: 0 0 3px rgba(250, 204, 21, 0.3);
-}
-
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .scroll-animate {
-                opacity: 1;
-                transform: none;
-            }
-            
-            .service-card:hover {
-                transform: none;
-            }
-            
-            /* Mobile Menu Improvements */
-            #mobile-menu-btn {
-                display: block !important;
-            }
-            
-            #mobile-menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-            
-            .dark #mobile-menu {
-                background: #1e293b;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            }
-            
-            #mobile-menu.show {
-                max-height: 500px;
-                padding: 1rem;
-                border-top: 1px solid #e5e7eb;
-            }
-            
-            .dark #mobile-menu.show {
-                border-top: 1px solid #374151;
-            }
-            
-            /* Mobile touch improvements */
-            button, a {
-                min-height: 44px;
-                min-width: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            /* Adjust text sizes for mobile */
-            h1 {
-                font-size: 2rem !important;
-            }
-            
-            h2 {
-                font-size: 1.75rem !important;
-            }
-            
-            /* Improve grid layout for mobile */
-            .grid-cols-1 {
-                grid-template-columns: 1fr;
-            }
-            
-            .grid-cols-2 {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .grid-cols-2 {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 1.75rem !important;
-            }
-            
-            h2 {
-                font-size: 1.5rem !important;
-            }
-            
-            /* Adjust padding for very small screens */
-            .px-6 {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            header, footer, #dark-mode-toggle, #back-to-top {
-                display: none;
-            }
-        }
-    </style>
 </head>
 <body class="font-body bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
 
@@ -368,7 +44,7 @@
     <div id="loading-screen" class="fixed inset-0 bg-primary-dark flex items-center justify-center z-[9999] transition-opacity duration-500">
         <div class="text-center">
             <div class="w-16 h-16 border-4 border-accent-yellow border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="text-white font-heading text-lg">جاري التحميل...</p>
+            <p class="text-white font-heading text-lg">جاري التحميل الرئيسية...</p>
         </div>
     </div>
 
@@ -382,101 +58,155 @@
         <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
-    <!-- Header -->
-    <header class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
+    <header class="fixed top-0 w-full bg-blue-900 dark:bg-gray-800 shadow-md z-50 transition-colors duration-300">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-
-                <!-- Logo -->
-                <a href="index.html" class="logo-container flex items-center group gap-4">
-                    <div class="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center overflow-hidden logo-wrapper">
-                        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-all duration-300 group-hover:scale-110">
-                    </div>
-                    
-                <div class="flex flex-col leading-none text-group">
-    <span
-        class="font-heading font-extrabold text-base lg:text-lg leading-none
-               text-yellow-600 dark:text-accent-yellow
-               transition-all duration-300
-               hover:text-yellow-600 hover:drop-shadow-[0_0_6px_rgba(0,0,0,0.3)]
-               dark:hover:text-white dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
-        DAY IDEA
-    </span>
-
-    <span
-        class="font-body font-bold text-sm lg:text-base leading-none -mt-1
-               text-yellow-600 dark:text-accent-yellow
-               transition-all duration-300
-               hover:text-yellow-600 hover:drop-shadow-[0_0_6px_rgba(0,0,0,0.3)]
-               dark:hover:text-white dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
-        فكرة اليوم
-    </span>
-</div>
-
-
-                </a>
+            <a href="index.html" class="logo-container flex items-center group gap-4 hover:scale-[1.02] transition-transform duration-300">
+    <div class="w-13 h-12 bg-accent-yellow rounded-xl flex items-center justify-center transition-all duration-300 
+                group-hover:text-primary-dark 
+                dark:group-hover:bg-yellow-400
+                group-hover:shadow-lg group-hover:shadow-blue-300/30 
+                dark:group-hover:shadow-lg dark:group-hover:shadow-yellow-400/30">
+        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-110">
+    </div>
+    
+    <div class="flex flex-col leading-none">
+        <span class="font-heading font-extrabold text-base lg:text-lg leading-none text-white 
+                    group-hover:text-yellow-400  <!-- هذا للوضع النهاري -->
+                    dark:text-white dark:group-hover:text-yellow-400  <!-- هذا للوضع الليلي -->
+                    transition-colors duration-300">DAY IDEA</span>
+        <span class="font-body font-bold text-sm lg:text-base leading-none -mt-1 text-white 
+                    group-hover:text-yellow-400  <!-- هذا للوضع النهاري -->
+                    dark:text-white dark:group-hover:text-yellow-400  <!-- هذا للوضع الليلي -->
+                    transition-colors duration-300">فكرة اليوم</span>
+    </div>
+</a>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-primary-dark dark:text-white">
+                <button id="mobile-menu-btn" class="md:hidden text-white">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex flex-1 justify-center">
-                    <div class="flex items-center gap-8">
-                        <a href="index.html" class="relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
-                            الرئيسية
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="about.html" class="relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
-                            عن الشركة
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="services.html" class="relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
-                            خدماتنا
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="projects.html" class="relative text-primary-dark dark:text-white hover:text-yellow-400 transition-all font-bold text-base lg:text-lg py-2 group">
-                            مشاريعنا
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Desktop Contact Button -->
-            <!-- Desktop Contact Button -->
-            <div class="hidden md:block">
-                <a href="contact.html" class="bg-accent-yellow text-primary-dark px-6 py-2 rounded-full font-heading font-bold hover:bg-yellow-500 hover:text-white transition-all duration-300 shadow-sm">
-                تواصل معنا
-                </a>
-            </div>
-            </div>
-            </div>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
-                <a href="index.html" class="block py-3 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors text-center">الرئيسية</a>
-                <a href="about.html" class="block py-3 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors text-center">عن الشركة</a>
-                <a href="services.html" class="block py-3 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors text-center">خدماتنا</a>
-                <!-- <a href="projects.html" class="block py-3 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors text-center">مشاريعنا</a> -->
-                <a href="contact.html" class="block py-3 text-primary-dark dark:text-white hover:text-accent-yellow transition-colors text-center">تواصل معنا</a>
-            </div>
-        </nav>
-    </header>
+               <!-- Desktop Navigation -->
+<div class="hidden md:flex flex-1 justify-center">
+    <div class="flex items-center gap-8">
+        <a href="index.html" 
+           class="nav-link relative text-white hover:text-yellow-400 
+                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
+                  data-[active=true]:text-yellow-400 group">
+            الرئيسية
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
+                         group-hover:w-full transition-all duration-300"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
+                         data-[active=true]:block hidden transition-all duration-300"></span>
+        </a>
+        <a href="about.html" 
+           class="nav-link relative text-white hover:text-yellow-400 
+                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
+                  data-[active=true]:text-yellow-400 group">
+            عن الشركة
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
+                         group-hover:w-full transition-all duration-300"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
+                         data-[active=true]:block hidden transition-all duration-300"></span>
+        </a>
+        <a href="services.html" 
+           class="nav-link relative text-white hover:text-yellow-400 
+                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
+                  data-[active=true]:text-yellow-400 group">
+            خدماتنا
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
+                         group-hover:w-full transition-all duration-300"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
+                         data-[active=true]:block hidden transition-all duration-300"></span>
+        </a>
+        <a href="projects.html" 
+           class="nav-link relative text-white hover:text-yellow-400 
+                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
+                  data-[active=true]:text-yellow-400 group">
+            مشاريعنا
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
+                         group-hover:w-full transition-all duration-300"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
+                         data-[active=true]:block hidden transition-all duration-300"></span>
+        </a>
+    </div>
+</div>
 
+
+<!-- Desktop Contact Button -->
+<div class="hidden md:block">
+    <a href="contact.html"
+       class="bg-yellow-400 px-6 py-2 rounded-full font-heading font-bold
+              hover:bg-yellow-300 hover:text-white
+              hover:shadow-[0_0_15px_rgba(250,204,21,0.6)]
+              transition-all duration-300 shadow-sm
+              flex items-center gap-2">
+
+        <i class="fas fa-envelope text-[#0D3B66] group-hover:text-white"></i>
+
+        <span class="text-[#0D3B66] group-hover:text-white">تواصل معنا</span>
+    </a>
+       </div>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-blue-800 dark:border-gray-700">
+    <a href="index.html" 
+       class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
+              transition-colors text-center font-bold relative group
+              data-[active=true]:text-yellow-400">
+        الرئيسية
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
+                     group-hover:w-3/4 transition-all duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
+                     data-[active=true]:block hidden transition-all duration-300"></span>
+    </a>
+    <a href="about.html" 
+       class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
+              transition-colors text-center font-bold relative group
+              data-[active=true]:text-yellow-400">
+        عن الشركة
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
+                     group-hover:w-3/4 transition-all duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
+                     data-[active=true]:block hidden transition-all duration-300"></span>
+    </a>
+    <a href="services.html" 
+       class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
+              transition-colors text-center font-bold relative group
+              data-[active=true]:text-yellow-400">
+        خدماتنا
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
+                     group-hover:w-3/4 transition-all duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
+                     data-[active=true]:block hidden transition-all duration-300"></span>
+    </a>
+    <a href="projects.html" 
+       class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
+              transition-colors text-center font-bold relative group
+              data-[active=true]:text-yellow-400">
+        مشاريعنا
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
+                     group-hover:w-3/4 transition-all duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
+                     data-[active=true]:block hidden transition-all duration-300"></span>
+    </a>
+</div>
+</nav>
+</header>
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                 <div class="flex-1 text-right lg:text-right">
-                    <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight" style="min-height: 1.2em;">
-                        <div class="typewriter-container">
-                            <span id="typewriter-first" class="text-highlight"></span>
-                            <span id="typewriter-second" class="text-gray-800 dark:text-white"></span>
-                            <span class="blinking-cursor">|</span>
-                        </div>
-                    </h1>
+                <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight" style="min-height: 1.2em;">
+                    <div class="typewriter-container">
+                        <span id="typewriter-first" class="text-yellow-600 dark:text-yellow-400 font-bold"></span>
+                        <span id="typewriter-second" class="text-gray-800 dark:text-gray-100"></span>
+                        <span class="text-yellow-600 dark:text-yellow-400 animate-pulse">|</span>
+                    </div>
+                </h1>
                     <p class="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-prose">
                         نحن في فكرة اليوم نسعى لتحويل أفكارك إلى واقع رقمي مبتكر من خلال حلول برمجية متقدمة ومخصصة لاحتياجاتك
                     </p>
@@ -500,30 +230,25 @@
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-dark opacity-5 rounded-full blur-3xl translate-x-48 translate-y-32 dark:bg-accent-yellow"></div>
         
         <div class="container mx-auto px-6">
-        <div class="text-center mb-16 scroll-animate">
-            <div class="flex items-center justify-center gap-6">
-                <div class="h-1 w-20 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
-                <span class="inline-block bg-blue-100 text-[#0018A8] px-5 md:px-6 py-2 rounded-full text-xl md:text-2xl font-heading font-extrabold dark:bg-blue-900/30 dark:text-blue-100 transform hover:scale-105 transition-all duration-300">
+            <div class="text-center mb-16 scroll-animate">
+                <div class="flex items-center justify-center gap-6">
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
+                    <span class="inline-block bg-blue-100 text-[#0018A8] px-5 md:px-6 py-2 rounded-full text-xl md:text-2xl font-heading font-extrabold dark:bg-blue-900/30 dark:text-blue-100 transform hover:scale-105 transition-all duration-300">
                         لماذا نحن؟
-                   </span>
-                <div class="h-1 w-20 bg-gradient-to-l from-transparent to-blue-500 rounded-full"></div>
-            </div>
+                    </span>
+                    <div class="h-1 w-20 bg-gradient-to-l from-transparent to-blue-500 rounded-full"></div>
+                </div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                
                 <div class="scroll-animate space-y-8">
-                    <div class="scroll-animate space-y-8">
-                        <h2 class="font-heading font-bold text-5xl md:text-6xl text-primary-dark dark:text-white leading-tight text-center">
-                            لماذا تختار 
-                            <span class="text-highlight font-black">
-                                فكرة اليوم؟
-                            </span>
-                        </h2>
-                    </div>
+                <h2 class="font-heading font-bold text-5xl md:text-6xl text-primary-dark dark:text-white leading-tight text-center">
+                لماذا تختار 
+                <span class="text-yellow-600 dark:text-yellow-400 font-black">فكرة اليوم؟</span>
+                </h2>
 
                     <p class="text-gray-600 dark:text-gray-300 text-xl leading-relaxed max-w-prose mx-auto text-center">
-                        نجمع بين الإبداع والخبرة التقنية لتقديم حلول برمجية مميزة تلبي احتياجاتك الفعلية وتفوق توقعاتك بمراحل.
+                        نجمع بين الإبداع والخبرة التقنية لتقديم حلول برمجية مميزة تلبي احتياجاتك الفعلية وتفوق توقعاتك 
                     </p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -533,7 +258,7 @@
                                     <i class="fas fa-user-graduate text-2xl text-accent-yellow"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white mb-1">خبرة محترفة</h3>
+                                    <h3 class="font-heading font-bold text-lg text-primary-dark dark:text-white mb-1">خبرة واحتراف</h3>
                                     <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">فريق ذو خبرة واسعة في أحدث التقنيات والمنهجيات</p>
                                 </div>
                             </div>
@@ -594,38 +319,35 @@
                         </div>
                         
                         <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-full flex justify-center gap-8">
-                            <!-- رمز 1: فريق -->
-<div class="group w-20 h-20 relative cursor-pointer">
-    <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-[#000080]/70 group-hover:scale-110">
-        <i class="fas fa-users text-lg text-accent-yellow dark:text-primary-dark mb-1 group-hover:text-white transition-colors duration-300"></i>
-        <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark group-hover:text-white transition-colors duration-300">50+</span>
-    </div>
-    <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity group-hover:text-[#000080]">
-        فريق
-    </div>
-</div>
+                            <div class="group w-20 h-20 relative cursor-pointer">
+                                <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-primary-dark group-hover:scale-110">
+                                    <i class="fas fa-users text-lg text-accent-yellow dark:text-primary-dark mb-1 group-hover:text-white transition-colors duration-300"></i>
+                                    <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark group-hover:text-white transition-colors duration-300">50+</span>
+                                </div>
+                                <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity group-hover:text-[#000080]">
+                                    فريق
+                                </div>
+                            </div>
 
-<!-- رمز 2: مشروع منجز -->
-<div class="group w-20 h-20 relative cursor-pointer">
-    <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-[#000080]/70 group-hover:scale-110">
-        <i class="fas fa-check-circle text-lg text-accent-yellow dark:text-primary-dark mb-1 group-hover:text-white transition-colors duration-300"></i>
-        <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark group-hover:text-white transition-colors duration-300">125+</span>
-    </div>
-    <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity group-hover:text-[#000080]">
-        مشروع منجز
-    </div>
-</div>
+                            <div class="group w-20 h-20 relative cursor-pointer">
+                                <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-primary-dark group-hover:scale-110">
+                                    <i class="fas fa-check-circle text-lg text-accent-yellow dark:text-primary-dark mb-1 group-hover:text-white transition-colors duration-300"></i>
+                                    <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark group-hover:text-white transition-colors duration-300">125+</span>
+                                </div>
+                                <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity group-hover:text-[#000080]">
+                                    مشروع منجز
+                                </div>
+                            </div>
 
-<!-- رمز 3: رضا العملاء -->
-<div class="group w-20 h-20 relative cursor-pointer">
-    <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-[#000080]/70 group-hover:scale-110">
-        <i class="fas fa-award text-lg text-accent-yellow dark:text-primary-dark mb-1 group-hover:text-white transition-colors duration-300"></i>
-        <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark group-hover:text-white transition-colors duration-300">99%</span>
-    </div>
-    <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity group-hover:text-[#000080]">
-        رضا العملاء
-    </div>
-</div>
+                            <div class="group w-20 h-20 relative cursor-pointer">
+                                <div class="w-full h-full rounded-full bg-primary-dark/80 dark:bg-accent-yellow/80 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-primary-dark group-hover:scale-110">
+                                    <i class="fas fa-award text-lg text-accent-yellow dark:text-primary-dark mb-1 group-hover:text-white transition-colors duration-300"></i>
+                                    <span class="text-base font-heading font-bold text-accent-yellow dark:text-primary-dark group-hover:text-white transition-colors duration-300">99%</span>
+                                </div>
+                                <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-primary-dark dark:text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity group-hover:text-[#000080]">
+                                    رضا العملاء
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -636,20 +358,18 @@
     <!-- Services Preview -->
     <section class="py-20 bg-gray-50 dark:bg-gray-900">
         <div class="container mx-auto px-6">
-            
             <div class="text-center mb-12 scroll-animate">
                 <div class="flex items-center justify-center gap-6">
-                <div class="h-1 w-20 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
-                <span class="inline-block bg-blue-100 text-[#0018A8] px-5 md:px-6 py-2 rounded-full text-xl md:text-2xl font-heading font-extrabold dark:bg-blue-900/30 dark:text-blue-100 transform hover:scale-105 transition-all duration-300">
-                   خدماتنا الرئيسية
-                </span>
-                <div class="h-1 w-20 bg-gradient-to-l from-transparent to-blue-500 rounded-full"></div>
-            </div>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
+                    <span class="inline-block bg-blue-100 text-[#0018A8] px-5 md:px-6 py-2 rounded-full text-xl md:text-2xl font-heading font-extrabold dark:bg-blue-900/30 dark:text-blue-100 transform hover:scale-105 transition-all duration-300">
+                        خدماتنا الرئيسية
+                    </span>
+                    <div class="h-1 w-20 bg-gradient-to-l from-transparent to-blue-500 rounded-full"></div>
+                </div>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <div class="group service-card bg-slate-200  dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible">
+                <div class="group service-card bg-slate-200 dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible">
                     <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 dark:group-hover:shadow-yellow-400/20 z-10">
                         <i class="fas fa-code text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
                     </div>
@@ -663,7 +383,7 @@
                     </div>
                 </div>
 
-                <div class="group service-card bg-slate-200  dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible">
+                <div class="group service-card bg-slate-200 dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 dark:hover:shadow-yellow-400/20 transition-all duration-300 scroll-animate transform hover:-translate-y-3 relative overflow-visible">
                     <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-yellow-400/40 dark:group-hover:shadow-yellow-400/20 z-10">
                         <i class="fas fa-cloud text-3xl text-primary-dark transition-all duration-300 group-hover:text-white dark:group-hover:text-white"></i>
                     </div>
@@ -713,6 +433,7 @@
             </div>
         </div>
     </section>
+
     <!-- Divider Line -->
     <div class="h-px bg-gradient-to-r from-transparent via-accent-yellow to-transparent"></div>
 
@@ -723,10 +444,10 @@
                 <div>
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-accent-yellow rounded-lg flex items-center justify-center ml-3 overflow-hidden">
-                        <img src="assets/images/LOGO1.png" 
-                        alt="Day Idea Company"
-                        class="h-9 w-9 object-contain">
-                         </div>
+                            <img src="assets/images/LOGO1.png" 
+                                 alt="Day Idea Company"
+                                 class="h-9 w-9 object-contain">
+                        </div>
                         <span class="font-heading font-bold text-2xl bg-gradient-to-r from-accent-yellow to-white bg-clip-text text-transparent">Day Idea Company</span>
                     </div>
                     <p class="text-blue-100 leading-relaxed">
@@ -805,339 +526,8 @@
         </div>
     </footer>
 
-    <!-- Dark Mode Script -->
-    <script>
-        // ============================================
-        // DARK MODE FUNCTIONALITY
-        // ============================================
-
-        // Check for saved theme or system preference
-        const getInitialTheme = () => {
-            const savedTheme = localStorage.getItem('day-idea-theme');
-            if (savedTheme) {
-                return savedTheme;
-            }
-            // Default to light mode on mobile, dark mode on desktop
-            const isMobile = window.matchMedia('(max-width: 768px)').matches;
-            return isMobile ? 'light' : 'dark';
-        };
-
-        // Apply theme to document
-        const applyTheme = (theme) => {
-            const html = document.documentElement;
-            const toggle = document.getElementById('dark-mode-toggle');
-            
-            if (theme === 'dark') {
-                html.classList.add('dark');
-                localStorage.setItem('day-idea-theme', 'dark');
-                
-                // Update icon to sun
-                if (toggle) {
-                    toggle.innerHTML = '<i class="fas fa-sun text-xl"></i>';
-                    toggle.title = 'تفعيل الوضع النهاري';
-                }
-            } else {
-                html.classList.remove('dark');
-                localStorage.setItem('day-idea-theme', 'light');
-                
-                // Update icon to moon
-                if (toggle) {
-                    toggle.innerHTML = '<i class="fas fa-moon text-xl"></i>';
-                    toggle.title = 'تفعيل الوضع الليلي';
-                }
-            }
-        };
-
-        // Initialize theme on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const initialTheme = getInitialTheme();
-            applyTheme(initialTheme);
-            
-            // Dark mode toggle button
-            const darkModeToggle = document.getElementById('dark-mode-toggle');
-            
-            if (darkModeToggle) {
-                darkModeToggle.addEventListener('click', () => {
-                    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                    applyTheme(newTheme);
-                    
-                    // Add animation
-                    darkModeToggle.style.transform = 'scale(1.2) rotate(180deg)';
-                    setTimeout(() => {
-                        darkModeToggle.style.transform = 'scale(1) rotate(0deg)';
-                    }, 300);
-                });
-            }
-            
-            // Listen for system theme changes
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-                // Only apply if user hasn't manually set a preference
-                if (!localStorage.getItem('day-idea-theme')) {
-                    applyTheme(e.matches ? 'dark' : 'light');
-                }
-            });
-        });
-    </script>
-
-    <!-- Main Script -->
-    <script>
-        // ============================================
-        // MAIN JAVASCRIPT FOR DAY IDEA COMPANY
-        // ============================================
-
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // ========================
-            // LOADING SCREEN
-            // ========================
-            window.addEventListener('load', () => {
-                const loadingScreen = document.getElementById('loading-screen');
-                setTimeout(() => {
-                    loadingScreen.classList.add('hide');
-                }, 1000);
-            });
-            
-            // ========================
-            // MOBILE MENU TOGGLE
-            // ========================
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('show');
-                    
-                    // Animate hamburger icon
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (mobileMenu.classList.contains('show')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                        mobileMenu.style.display = 'block';
-                        setTimeout(() => {
-                            mobileMenu.style.maxHeight = '500px';
-                            mobileMenu.style.opacity = '1';
-                        }, 10);
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                        mobileMenu.style.maxHeight = '0';
-                        mobileMenu.style.opacity = '0';
-                        setTimeout(() => {
-                            mobileMenu.style.display = 'none';
-                        }, 300);
-                    }
-                });
-                
-                // Close menu when clicking a link
-                document.querySelectorAll('#mobile-menu a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.remove('show');
-                        mobileMenu.style.maxHeight = '0';
-                        mobileMenu.style.opacity = '0';
-                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                        setTimeout(() => {
-                            mobileMenu.style.display = 'none';
-                        }, 300);
-                    });
-                });
-            }
-            
-            // ========================
-            // SCROLL ANIMATIONS
-            // ========================
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.scroll-animate').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // ========================
-            // BACK TO TOP BUTTON
-            // ========================
-            const backToTopBtn = document.getElementById('back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('visible');
-                    backToTopBtn.style.opacity = '1';
-                    backToTopBtn.style.visibility = 'visible';
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                    backToTopBtn.style.opacity = '0';
-                    backToTopBtn.style.visibility = 'hidden';
-                }
-            });
-            
-            backToTopBtn?.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // ========================
-            // LAZY LOADING IMAGES
-            // ========================
-            const lazyImages = document.querySelectorAll('img[data-src]');
-            
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy-load');
-                        observer.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '50px 0px'
-            });
-            
-            lazyImages.forEach(img => imageObserver.observe(img));
-            
-            // ========================
-            // TYPEWRITER EFFECT - CONTINUOUS LOOP
-            // ========================
-            function initTypewriter() {
-                const firstElement = document.getElementById('typewriter-first');
-                const secondElement = document.getElementById('typewriter-second');
-                
-                if (!firstElement || !secondElement) return; // Exit if elements not found
-                
-                const firstPart = 'أفـكار اليـوم ';
-                const secondPart = ' إستثمار الغـد ';
-                let index = 0;
-                let isWritingFirst = true;
-                let isDeleting = false;
-                
-                function typeWriter() {
-                    // === WRITING PHASE ===
-                    if (!isDeleting) {
-                        if (isWritingFirst) {
-                            // Writing first part (yellow)
-                            if (index < firstPart.length) {
-                                firstElement.textContent = firstPart.substring(0, index + 1);
-                                index++;
-                            } else {
-                                // First part complete, move to second
-                                isWritingFirst = false;
-                                index = 0;
-                            }
-                        } else {
-                            // Writing second part (white/gray)
-                            if (index < secondPart.length) {
-                                secondElement.textContent = secondPart.substring(0, index + 1);
-                                index++;
-                            } else {
-                                // Complete text written - PAUSE
-                                setTimeout(() => {
-                                    isDeleting = true;
-                                    index = secondPart.length - 1;
-                                    typeWriter();
-                                }, 1500);
-                                return;
-                            }
-                        }
-                    } 
-                    // === DELETING PHASE ===
-                    else {
-                        if (isWritingFirst) {
-                            // Deleting first part
-                            if (index >= 0) {
-                                firstElement.textContent = firstPart.substring(0, index);
-                                index--;
-                            } else {
-                                // First part deleted, move to second
-                                isWritingFirst = false;
-                                index = secondPart.length - 1;
-                            }
-                        } else {
-                            // Deleting second part
-                            if (index >= 0) {
-                                secondElement.textContent = secondPart.substring(0, index);
-                                index--;
-                            } else {
-                                // Complete text deleted - PAUSE then RESTART
-                                setTimeout(() => {
-                                    isWritingFirst = true;
-                                    isDeleting = false;
-                                    index = 0;
-                                    firstElement.textContent = '';
-                                    secondElement.textContent = '';
-                                    typeWriter();
-                                }, 800);
-                                return;
-                            }
-                        }
-                    }
-                    
-                    // Schedule next character
-                    const typingSpeed = isDeleting ? 60 : 120;
-                    setTimeout(typeWriter, typingSpeed);
-                }
-                
-                // Start the infinite loop
-                typeWriter();
-            }
-            
-            // Initialize typewriter effect
-            initTypewriter();
-            
-            // ========================
-            // WINDOW RESIZE HANDLER
-            // ========================
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    // Close mobile menu on resize to desktop
-                    if (window.innerWidth >= 768) {
-                        const mobileMenu = document.getElementById('mobile-menu');
-                        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-                        
-                        if (mobileMenu && mobileMenuBtn) {
-                            mobileMenu.classList.remove('show');
-                            mobileMenu.style.display = 'none';
-                            mobileMenu.style.maxHeight = '0';
-                            mobileMenu.style.opacity = '0';
-                            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                        }
-                    }
-                }, 250);
-            });
-            
-            // ========================
-            // ACTIVE NAV LINK
-            // ========================
-            function setActiveNavLink() {
-                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-                const navLinks = document.querySelectorAll('header nav a');
-                
-                navLinks.forEach(link => {
-                    const linkHref = link.getAttribute('href');
-                    if (linkHref === currentPage) {
-                        link.classList.add('text-yellow-400');
-                        link.classList.remove('text-primary-dark', 'dark:text-white');
-                    }
-                });
-            }
-            
-            setActiveNavLink();
-        });
-    </script>
+    <!-- JavaScript Files -->
+    <script src="js/dark-mode.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
