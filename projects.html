@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مشاريعنا - Day Idea Company</title>
+    <link rel="icon" href="assets/images/LOGO1.png" type="image/png">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -26,6 +37,7 @@
             }
         }
     </script>
+    
     <style>
         /* Essential animations and effects only */
         .scroll-animate {
@@ -68,6 +80,15 @@
             border: 2px solid #FFD166 !important;
         }
         
+        /* تأكيد لون النافبار */
+        header {
+            background-color: #0D3B66 !important;
+        }
+        
+        .dark header {
+            background-color: #0D3B66 !important;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             /* Mobile touch improvements */
@@ -86,7 +107,7 @@
     <div id="loading-screen" class="fixed inset-0 bg-primary-dark flex items-center justify-center z-[9999] transition-opacity duration-500">
         <div class="text-center">
             <div class="w-16 h-16 border-4 border-accent-yellow border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="text-white font-heading text-lg">جاري التحميل مشاريعنا...</p>
+            <p class="text-white font-heading text-lg">جاري التحميل المشاريع...</p>
         </div>
     </div>
 
@@ -100,148 +121,145 @@
         <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
-    <header class="fixed top-0 w-full bg-blue-900 dark:bg-gray-800 shadow-md z-50 transition-colors duration-300">
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-primary-dark dark:bg-primary-dark shadow-md z-50 transition-colors duration-300">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-            <a href="index.html" class="logo-container flex items-center group gap-4 hover:scale-[1.02] transition-transform duration-300">
-    <div class="w-13 h-12 bg-accent-yellow rounded-xl flex items-center justify-center transition-all duration-300 
-                group-hover:text-primary-dark 
-                dark:group-hover:bg-yellow-400
-                group-hover:shadow-lg group-hover:shadow-blue-300/30 
-                dark:group-hover:shadow-lg dark:group-hover:shadow-yellow-400/30">
-        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-110">
-    </div>
-    
-    <div class="flex flex-col leading-none">
-        <span class="font-heading font-extrabold text-base lg:text-lg leading-none text-white 
-                    group-hover:text-yellow-400  <!-- هذا للوضع النهاري -->
-                    dark:text-white dark:group-hover:text-yellow-400  <!-- هذا للوضع الليلي -->
-                    transition-colors duration-300">DAY IDEA</span>
-        <span class="font-body font-bold text-sm lg:text-base leading-none -mt-1 text-white 
-                    group-hover:text-yellow-400  <!-- هذا للوضع النهاري -->
-                    dark:text-white dark:group-hover:text-yellow-400  <!-- هذا للوضع الليلي -->
-                    transition-colors duration-300">فكرة اليوم</span>
-    </div>
-</a>
+                <a href="index.html" class="logo-container flex items-center group gap-4 hover:scale-[1.02] transition-transform duration-300">
+                    <div class="w-13 h-12 bg-accent-yellow rounded-xl flex items-center justify-center transition-all duration-300 
+                                group-hover:text-primary-dark 
+                                dark:group-hover:bg-yellow-400
+                                group-hover:shadow-lg group-hover:shadow-blue-300/30 
+                                dark:group-hover:shadow-lg dark:group-hover:shadow-yellow-400/30">
+                        <img src="assets/images/LOGO1.png" alt="Logo" class="w-full h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-110">
+                    </div>
+
+                    <div class="flex flex-col leading-none">
+                        <span class="font-heading font-extrabold text-base lg:text-lg leading-none text-white 
+                                    group-hover:text-yellow-400
+                                    dark:text-white dark:group-hover:text-yellow-400
+                                    transition-colors duration-300">DAY IDEA</span>
+                        <span class="font-body font-bold text-sm lg:text-base leading-none -mt-1 text-white 
+                                    group-hover:text-yellow-400
+                                    dark:text-white dark:group-hover:text-yellow-400
+                                    transition-colors duration-300">فكرة اليوم</span>
+                    </div>
+                </a>
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-white">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
 
-               <!-- Desktop Navigation -->
-<div class="hidden md:flex flex-1 justify-center">
-    <div class="flex items-center gap-8">
-        <a href="index.html" 
-           class="nav-link relative text-white hover:text-yellow-400 
-                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
-                  data-[active=true]:text-yellow-400 group">
-            الرئيسية
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
-                         group-hover:w-full transition-all duration-300"></span>
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
-                         data-[active=true]:block hidden transition-all duration-300"></span>
-        </a>
-        <a href="about.html" 
-           class="nav-link relative text-white hover:text-yellow-400 
-                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
-                  data-[active=true]:text-yellow-400 group">
-            عن الشركة
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
-                         group-hover:w-full transition-all duration-300"></span>
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
-                         data-[active=true]:block hidden transition-all duration-300"></span>
-        </a>
-        <a href="services.html" 
-           class="nav-link relative text-white hover:text-yellow-400 
-                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
-                  data-[active=true]:text-yellow-400 group">
-            خدماتنا
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
-                         group-hover:w-full transition-all duration-300"></span>
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
-                         data-[active=true]:block hidden transition-all duration-300"></span>
-        </a>
-        <a href="projects.html" 
-           class="nav-link relative text-white hover:text-yellow-400 
-                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
-                  data-[active=true]:text-yellow-400 group">
-            مشاريعنا
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
-                         group-hover:w-full transition-all duration-300"></span>
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
-                         data-[active=true]:block hidden transition-all duration-300"></span>
-        </a>
-    </div>
-</div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex flex-1 justify-center">
+                    <div class="flex items-center gap-8">
+                        <a href="index.html"
+                        class="nav-link relative text-white hover:text-yellow-400 
+                                transition-colors duration-300 font-bold text-base lg:text-lg py-2
+                                data-[active=true]:text-yellow-400 group">
+                            الرئيسية
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
+                                        group-hover:w-full transition-all duration-300"></span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
+                                        data-[active=true]:block hidden transition-all duration-300"></span>
+                        </a>
+                        <a href="about.html"
+                        class="nav-link relative text-white hover:text-yellow-400 
+                                transition-colors duration-300 font-bold text-base lg:text-lg py-2
+                                data-[active=true]:text-yellow-400 group">
+                            عن الشركة
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
+                                        group-hover:w-full transition-all duration-300"></span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
+                                        data-[active=true]:block hidden transition-all duration-300"></span>
+                        </a>
+                        <a href="services.html"
+                           class="nav-link relative text-white hover:text-yellow-400 
+                                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
+                                  data-[active=true]:text-yellow-400 group">
+                            خدماتنا
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
+                                         group-hover:w-full transition-all duration-300"></span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
+                                         data-[active=true]:block hidden transition-all duration-300"></span>
+                        </a>
+                        <a href="projects.html" 
+                           class="nav-link relative text-white hover:text-yellow-400 
+                                  transition-colors duration-300 font-bold text-base lg:text-lg py-2
+                                  data-[active=true]:text-yellow-400 group">
+                            مشاريعنا
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 
+                                         group-hover:w-full transition-all duration-300"></span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 
+                                         data-[active=true]:block hidden transition-all duration-300"></span>
+                        </a>
+                    </div>
+                </div>
 
-<!-- 
-<!-- Desktop Contact Button -->
-<div class="hidden md:block">
-    <a href="contact.html"
-       class="bg-yellow-400 px-6 py-2 rounded-full font-heading font-bold
-              hover:bg-yellow-300 hover:text-white
-              hover:shadow-[0_0_15px_rgba(250,204,21,0.6)]
-              transition-all duration-300 shadow-sm
-              flex items-center gap-2">
-
-        <i class="fas fa-envelope text-[#0D3B66] group-hover:text-white"></i>
-
-        <span class="text-[#0D3B66] group-hover:text-white">تواصل معنا</span>
-    </a>
-       </div>
-</div>
-
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-blue-800 dark:border-gray-700">
-    <a href="index.html" 
-       class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
-              transition-colors text-center font-bold relative group
-              data-[active=true]:text-yellow-400">
-        الرئيسية
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
-                     group-hover:w-3/4 transition-all duration-300"></span>
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
-                     data-[active=true]:block hidden transition-all duration-300"></span>
-    </a>
-    <a href="about.html" 
-       class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
-              transition-colors text-center font-bold relative group
-              data-[active=true]:text-yellow-400">
-        عن الشركة
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
-                     group-hover:w-3/4 transition-all duration-300"></span>
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
-                     data-[active=true]:block hidden transition-all duration-300"></span>
-    </a>
-    <a href="services.html" 
-       class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
-              transition-colors text-center font-bold relative group
-              data-[active=true]:text-yellow-400">
-        خدماتنا
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
-                     group-hover:w-3/4 transition-all duration-300"></span>
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
-                     data-[active=true]:block hidden transition-all duration-300"></span>
-    </a>
-    <a href="projects.html" 
-       class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
-              transition-colors text-center font-bold relative group
-              data-[active=true]:text-yellow-400">
-        مشاريعنا
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
-                     group-hover:w-3/4 transition-all duration-300"></span>
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
-                     data-[active=true]:block hidden transition-all duration-300"></span>
-              </a>
-                 <a href="contact.html" class="block mt-2 bg-accent-yellow text-primary-dark py-2 px-4 rounded-full font-heading font-bold text-center hover:bg-yellow-400 transition-all">
-                        تواصل معنا
+                <!-- Desktop Contact Button -->
+                <div class="hidden md:block">
+                    <a href="contact.html"
+                       class="bg-yellow-400 px-6 py-2 rounded-full font-heading font-bold
+                              hover:bg-yellow-300 hover:text-white
+                              hover:shadow-[0_0_15px_rgba(250,204,21,0.6)]
+                              transition-all duration-300 shadow-sm
+                              flex items-center gap-2">
+                        <i class="fas fa-envelope text-[#0D3B66] group-hover:text-white"></i>
+                        <span class="text-[#0D3B66] group-hover:text-white">تواصل معنا</span>
                     </a>
-</div>
+                </div>
+            </div>
 
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-blue-800 dark:border-gray-700">
+                <a href="index.html" 
+                   class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
+                          transition-colors text-center font-bold relative group
+                          data-[active=true]:text-yellow-400">
+                    الرئيسية
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
+                                 group-hover:w-3/4 transition-all duration-300"></span>
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
+                                 data-[active=true]:block hidden transition-all duration-300"></span>
+                </a>
+                <a href="about.html" 
+                   class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
+                          transition-colors text-center font-bold relative group
+                          data-[active=true]:text-yellow-400">
+                    عن الشركة
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
+                                 group-hover:w-3/4 transition-all duration-300"></span>
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
+                                 data-[active=true]:block hidden transition-all duration-300"></span>
+                </a>
+                <a href="services.html" 
+                   class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
+                          transition-colors text-center font-bold relative group
+                          data-[active=true]:text-yellow-400">
+                    خدماتنا
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
+                                 group-hover:w-3/4 transition-all duration-300"></span>
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
+                                 data-[active=true]:block hidden transition-all duration-300"></span>
+                </a>
+                <a href="projects.html" 
+                   class="mobile-nav-link block py-3 text-white hover:text-yellow-400 
+                          transition-colors text-center font-bold relative group
+                          data-[active=true]:text-yellow-400">
+                    مشاريعنا
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-yellow-400 
+                                 group-hover:w-3/4 transition-all duration-300"></span>
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-yellow-400 
+                                 data-[active=true]:block hidden transition-all duration-300"></span>
+                </a>
+                <a href="contact.html" class="block mt-2 bg-accent-yellow text-primary-dark py-2 px-4 rounded-full font-heading font-bold text-center hover:bg-yellow-400 transition-all">
+                    تواصل معنا
+                </a>
+            </div>
+        </nav>
+    </header>
 
-</nav>
-</header>
     <!-- Hero Section -->
     <section class="pt-24 pb-2 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div class="container mx-auto px-6 text-center">
@@ -253,7 +271,7 @@
                 </span>
             </h1>
             <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto scroll-animate mb-0">
-                مجموعة من أعمالنا التي تعكس احترافيتنا وإبداعنا في ادق التفاصيل 
+                مجموعة من أعمالنا التي تعكس احترافيتنا وإبداعنا في أدق التفاصيل 
             </p>
         </div>
     </section>
@@ -264,7 +282,7 @@
             <div class="flex flex-wrap justify-center gap-4 mb-8 scroll-animate">
                 <button class="filter-btn active bg-gradient-to-r from-accent-yellow to-yellow-400 text-primary-dark px-6 py-3 rounded-full font-heading font-bold transition-all duration-300 shadow-lg flex items-center gap-2" data-filter="all">
                     <i class="fas fa-th-large text-lg"></i>
-                    بعض المشاريع
+                    جميع المشاريع
                 </button>
                 <button class="filter-btn bg-gradient-to-r from-accent-yellow to-yellow-400 text-primary-dark px-6 py-3 rounded-full font-heading font-bold transition-all duration-300 shadow-lg flex items-center gap-2" data-filter="mobile">
                     <i class="fas fa-mobile-alt text-lg"></i>
@@ -455,7 +473,7 @@
     <!-- Divider Line -->
     <div class="h-px bg-gradient-to-r from-transparent via-accent-yellow to-transparent"></div>
 
-       <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-primary-dark text-white py-10">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8">
@@ -539,7 +557,7 @@
             </div>
 
             <div class="border-t border-accent-yellow mt-4 pt-4 text-center text-blue-200">
-                <p>&copy;جميع الحقوق محفوظة لشركة فكرة اليوم 2025</p>
+                <p>&copy; جميع الحقوق محفوظة لشركة فكرة اليوم 2025</p>
             </div>
         </div>
     </footer>
