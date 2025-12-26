@@ -564,3 +564,4 @@ document.getElementById('dark-mode-toggle')?.addEventListener('click', () => {
 document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
     setTimeout(forceNavbarColors, 50);
 });
+
