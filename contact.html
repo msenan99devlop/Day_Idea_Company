@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تواصل معنا - Day Idea Company</title>
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
@@ -34,63 +34,8 @@
             }
         }
     </script>
-    
-    <!-- Custom Styles -->
-    <style>
-        /* Essential animations */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .scroll-animate.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Form input focus effects */
-        .form-input:focus {
-            box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.3);
-            outline: none;
-        }
-        
-        /* Mobile menu */
-        #mobile-menu {
-            transition: all 0.4s ease;
-            max-height: 0;
-            overflow: hidden;
-        }
-        
-        #mobile-menu.show {
-            max-height: 500px;
-        }
-        
-        /* Logo hover effects */
-        .logo-container:hover img {
-            transform: scale(1.1);
-        }
-        
-        /* تأكيد لون النافبار */
-        header {
-            background-color: #0D3B66 !important;
-        }
-        
-        .dark header {
-            background-color: #0D3B66 !important;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            /* Mobile touch improvements */
-            button, a {
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-    </style>
+
+
 </head>
 <body class="font-body bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
 

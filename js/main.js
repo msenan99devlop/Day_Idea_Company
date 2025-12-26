@@ -199,7 +199,7 @@ const AppManager = (() => {
         lazyImages.forEach(img => imageObserver.observe(img));
     };
     
-    // ========================
+// ========================
 // TYPEWRITER EFFECT
 // ========================
 const initTypewriter = () => {
@@ -526,4 +526,41 @@ window.addEventListener('popstate', () => {
     if (window.AppManager && window.AppManager.updateActiveNavAttributes) {
         window.AppManager.updateActiveNavAttributes();
     }
+});
+
+
+// حل نهائي للنافبار - إجبار الألوان
+function forceNavbarColors() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    // 1. إجبار لون الخلفية
+    header.style.cssText += 'background-color: #0D3B66 !important;';
+    
+    // 2. إجبار ألوان النصوص البيضاء
+    const whiteElements = header.querySelectorAll('a, span, button, div, p, h1, h2, h3, h4, h5, h6');
+    whiteElements.forEach(el => {
+        if (!el.closest('.bg-yellow-400') && !el.closest('.bg-accent-yellow')) {
+            el.style.color = 'white !important';
+        }
+    });
+    
+    // 3. إصلاح القائمة المتنقلة
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.style.backgroundColor = '#0D3B66 !important';
+    }
+}
+
+// تشغيل عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', forceNavbarColors);
+
+// تشغيل عند تبديل الوضع الداكن
+document.getElementById('dark-mode-toggle')?.addEventListener('click', () => {
+    setTimeout(forceNavbarColors, 50);
+});
+
+// تشغيل عند فتح/إغلاق القائمة المتنقلة
+document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+    setTimeout(forceNavbarColors, 50);
 });
